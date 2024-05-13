@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div style="
+    background-color: bisque;
+    border-radius: 15px;
+    height: 30%;
+    width: 42%;
+    margin: auto;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    " class="countiner">
+
+
+
+
+        <h1>Hallo World!</h1>
+        <p id="textId" style="color: rgb(128, 148, 141);
+        font-size: x-large;">the Result</p>
+    </div>
+    <script>
+        'use strict';
+        const lin = (length, char) => {
+            if (length === 0)
+                return "";
+
+            return lin(length - 1, char) + char;
+
+        };
+        console.log(lin(9, '🚗'));
+        // ==============================================================
+
+        const lineS = (length, char) => {
+            return length !== 0 ? lineS(length - 1, char) + char : "";
+
+        };
+        console.log(lineS(5, "😂"));
+
+
+        let textResult = document.getElementById("textId");
+
+        const lineFor = (length, char) => {
+            let container = ""
+            for (let x = 0; x < 4; x++) {
+                container += char;
+                console.log(container);
+
+            };
+
+            return container;
+
+
+
+            // ===> hier ist the console if you will write something
+
+            // let result = Number(prompt("Hallo, du kannst hier etwas schreiben!!"));
+            // if (result === 0 || isNaN(result)) {
+
+            //     console.log("Das Ergebnis ist falsch");
+            //     textResult.innerHTML = "Das Ergebnis ist falsch";
+            //     console.log(result);
+            // } else {
+            //     let arrayIm = () => {
+            //         let a = result + 3;
+            //         textResult.innerHTML = a;
+
+            //         console.log(a);
+            //     };
+            //     arrayIm(); // Diese Funktion wird aufgerufen und das Ergebnis wird in der Konsole geloggt.
+            // }
+
+
+        };
+        lineFor(11, "©");
+    </script>
+</body>
+
+</html>
