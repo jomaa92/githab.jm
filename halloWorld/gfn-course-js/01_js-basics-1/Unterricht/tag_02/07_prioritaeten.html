@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prioritäten und Klammerung</title>
+  </head>
+  <body>
+    <h1>Prioritäten und Klammerung</h1>
+
+    <script>
+      'use strict';
+
+      // Prioritätenreihenfolge ist Punkt vor Strichrechnung bzw. KLA-PO-PU-STRI
+      // KLA: Klammer, PO: Potenzen, PU: Punkt, STRI: Strichrechnung
+      console.log(3 * 4 + 7 / 2 - 3); // => 12.5
+      // prettier-ignore
+      console.log((3 * 4) + (7 / 2) - 3) // => 12.5
+
+      // Nach KLA-PO-PU-STRI wird berechnet
+      console.log((3 * (4 + 7)) / 2 - 3);
+
+      // STOLPERFALLEN
+
+      // Ergebnis von Schritt 1 und 2
+      console.log(typeof 24 + 3); // => 'number3'
+
+      // Schritt 1:
+      console.log(typeof 24); // => 'number'
+
+      // Schritt 2:
+      console.log('number' + 3); // => 'number3'
+
+      // Korrekte Darstellung
+      console.log(typeof (24 + 3)); // => 'number'
+    </script>
+  </body>
+</html>

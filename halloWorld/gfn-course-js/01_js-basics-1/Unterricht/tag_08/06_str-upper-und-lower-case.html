@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.toUpperCase() und String.toLowerCase()</title>
+  </head>
+  <body>
+    <h1>String.toUpperCase() und String.toLowerCase()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase"
+        >String.toUpperCase()</a
+      >
+    </p>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase"
+        >String.toLowerCase()</a
+      >
+    </p>
+
+    <script>
+      'use strict';
+
+      let firstName = 'ladislaus';
+      console.log(firstName.toUpperCase()); // => 'LADISLAUS'
+
+      firstName = firstName.charAt(0).toUpperCase() + firstName.substring(1);
+      console.log(firstName);
+
+      let lastName = 'jOnEs';
+      console.log(lastName.toLowerCase()); // => 'jones'
+
+      lastName =
+        lastName.charAt(0).toUpperCase() + lastName.substr(1).toLowerCase();
+      console.log(lastName);
+
+      // String - Methode/Funktion => toUpperCase()
+      console.log('lorem ipsum'.toUpperCase()); // => 'LOREM IPSUM'
+
+      // String - Methode/Funktion => toLowerCase()
+      console.log('LOREm IPsuM'.toLowerCase()); // => 'lorem ipsum'
+    </script>
+  </body>
+</html>

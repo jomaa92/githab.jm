@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekursion - Line</title>
+  </head>
+  <body>
+    <h1>Rekursion - Line</h1>
+
+    <script>
+      'use strict';
+
+      // Rekursive Funktion
+
+      // line erstellt einen String
+      const line = (length, char) => {
+        // Guard: Überprüft ob "length" gleich 0 ist
+        if (length === 0) return '';
+
+        // return line(--length, char) + char; // => Alternative zu length - 1 ist --length
+
+        return line(length - 1, char) + char;
+      };
+
+      // Hypeshort line Funktionsschreibweise
+      const lineShort = (length, char) => {
+        return length !== 0 ? lineShort(length - 1, char) + char : '';
+      };
+
+      console.log(line(0, '🚗')); // => ''
+      console.log(line(10, '🚗')); // => '🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗'
+      console.log(line(15, '*')); // => '***************'
+      console.log(line(5, '🧠')); // => '🧠🧠🧠🧠🧠'
+
+      console.log(lineShort(3, '∞')); // => '∞∞∞'
+
+      // ======== ALTERNATIVE ZU REKURSION SIND SCHLEIFEN ========
+      const lineLoop = (length, char) => {
+        let lineText = '';
+
+        for (let i = 0; i < length; i++) {
+          lineText += char;
+          console.log(lineText);
+        }
+
+        return lineText;
+      };
+
+      console.log(lineLoop(5, '🧟'));
+
+      // Benchmark
+      // https://jsben.ch/wN8H4
+    </script>
+  </body>
+</html>

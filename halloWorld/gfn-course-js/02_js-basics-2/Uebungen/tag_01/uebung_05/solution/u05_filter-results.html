@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 05: Lückentext zu filter</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 05: Lückentext zu filter</h1>
+          <p>
+            Auch zu <code>filter</code> haben wir einen kleinen Lückentext
+            vorbereitet. Ersetzen Sie wieder die Kommentare
+            <code>/* ??? */</code> durch den richtigen Code, um das angegebene
+            Ergebnis zu erzielen.
+          </p>
+        </div>
+
+        <div class="output-even-numbers alert alert-secondary"></div>
+        <div class="output-names alert alert-secondary"></div>
+        <div class="output-words alert alert-secondary"></div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const evenNumbersEL = document.querySelector('.output-even-numbers');
+      const namesEl = document.querySelector('.output-names');
+      const wordsEl = document.querySelector('.output-words');
+
+      let results;
+      let result;
+
+      // even numbers
+      let inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      results = inputs.filter((x) => x % 2 === 0);
+      console.log(results); // => [2, 4, 6, 8, 10]
+      evenNumbersEL.textContent = `Even numbers: ${results.join(', ')}`;
+
+      // names ending with letter 'e' or 'a'
+      let names = ['Heribert', 'Friedlinde', 'Tusnelda', 'Oswine', 'Ladislaus'];
+      results = names.filter((name) => {
+        // const lastLetter = name[name.length - 1].toLowerCase();
+        // return lastLetter === 'e' || lastLetter === 'a';
+        return name.endsWith('e') || name.endsWith('a');
+      });
+      console.log(results); // => [ 'Friedlinde', 'Tusnelda', 'Oswine' ]
+      namesEl.textContent = `Names ending with e or a: ${results.join(', ')}`;
+
+      // words with at least three letters
+      let text = 'Hi this is a short text';
+      const textResult = text
+        .split(/\s+/)
+        .filter((word) => word.length >= 3)
+        .join(' ');
+      console.log(textResult); // => 'this short text'
+      wordsEl.textContent = `Words with at least 3 letters: ${textResult}`;
+    </script>
+  </body>
+</html>

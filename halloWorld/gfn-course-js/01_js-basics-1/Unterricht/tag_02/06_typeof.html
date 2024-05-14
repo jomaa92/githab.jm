@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Der Befehl typeof</title>
+  </head>
+  <body>
+    <h1>Der Befehl typeof</h1>
+
+    <script>
+      'use strict';
+
+      const zahl = 123;
+
+      // WICHTIG: Die Ausgabe von typeof ist IMMER ein String
+      console.log(typeof zahl); // => 'number'
+
+      // STOLPERFALLE
+      // Wo immer mehr als 1x typeof steht, bekommt man string heraus
+      console.log(typeof typeof zahl); // => 'string'
+      console.log(typeof typeof typeof zahl); // => 'string'
+
+      console.log(typeof 'Berlin'); // => 'string'
+      console.log(typeof -100); // => 'number'
+      console.log(typeof 3.14); // => 'number'
+
+      console.log(typeof 43); // => 'number'
+      console.log(typeof '43'); // => 'string'
+
+      // Special Cases
+      console.log(typeof undefined); // => 'undefined'
+      console.log(typeof null); // => 'object'
+      console.log(typeof [1, 2, 3]); // => 'object', kein Array als Datentyp, weil ein Array im Kern ein Objekt ist
+    </script>
+  </body>
+</html>

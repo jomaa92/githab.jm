@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Object</title>
+  </head>
+  <body>
+    <h1>Math Object</h1>
+
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math?retiredLocale=de"
+      target="_blank"
+    >
+      MDN Math Documentation
+    </a>
+
+    <script>
+      'use strict';
+
+      // Math.sqrt() -> Quadratwurzel
+      console.log(Math.sqrt(9)); // => 3 -> Quadratwurzel da 3^2 = 9
+
+      // Math.pow() -> Exponenten berechnen
+      console.log(2 ** 5); // => 32 -> 2^5 -> 2 * 2 * 2 * 2 * 2 = 32
+      console.log(Math.pow(2, 5)); // => 32 -> 2^5
+
+      // Math.PI
+      console.log(Math.PI); // => 3.141592653589793
+
+      // Math.max(x, y, z, ...) -> gibt uns die größte Zahl zurück
+      console.log(Math.max(3, 10, 5, 6)); // => 10
+
+      // Math.min(x, y, z, ...) -> gibt uns die kleinste Zahl zurück
+      console.log(Math.min(3, 10, 5, 6)); // => 3
+
+      // Math.round() -> Zahlen werden gerundet
+      console.log(Math.round(3.4)); // => 3 -> runtergerundet
+      console.log(Math.round(3.5)); // => 4 -> aufgerundet
+
+      // Math.floor() -> Zahl wird IMMER runtergerundet
+      console.log(Math.floor(4.9)); // => 4
+      console.log(Math.floor(4.5)); // => 4
+
+      // Math.ceil() -> Zahl wird IMMER aufgerundet
+      console.log(Math.ceil(8.1)); // => 9
+      console.log(Math.ceil(8.000000000001)); // => 9
+
+      // Math.abs() -> absolute Zahl/Betrag
+      console.log(Math.abs(-10.25)); // => 10.25
+
+      // Math.random() -> eine Zufallszahl zwischen 0 und 1, aber die Zufallszahl ist IMMER größer als 0 und kleiner als 1
+
+      // Würfelzug (die Zahlen: 1, 2, 3, 4, 5, 6 sollen gezogen)
+      console.log(Math.floor(Math.random() * 6) + 1);
+
+      // ===== Nicht Prüfungsrelevant, aber trotzdem nice to know =====
+
+      // Math.cos() -> Kosinus berechnen
+      console.log(Math.cos(0)); // => 1
+
+      // Math.sin() -> Sinus berechnen
+      console.log(Math.sin(1)); // => 0.8414709848078965
+    </script>
+  </body>
+</html>

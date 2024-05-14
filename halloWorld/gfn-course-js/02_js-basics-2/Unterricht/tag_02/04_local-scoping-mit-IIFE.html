@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      local scoping mit Immediately Invoked Function Expression (IIFE)
+    </title>
+  </head>
+  <body>
+    <h1>local scoping mit Immediately Invoked Function Expression (IIFE)</h1>
+
+    <!-- Globale Settings für alle Entwickler -->
+    <script>
+      'use strict';
+
+      // Globale Variablen, gilt auch Datei-übergreifend
+      const DEFAULT_LANGUAGE = 'de';
+      const BASE_URL = 'http://localhost:5500';
+      const TAX_RATE = 1.19;
+      const DB_NAME = 'todos_db';
+      const DEBUG_MODE = true;
+    </script>
+
+    <!-- Entwicker #1 -->
+    <script>
+      'use strict';
+
+      // Einkapselung durch IFFE - Immediately Invoked Function Expression
+      (() => {
+        let numbers = [1, 2, 3, 4, 5];
+        let name = 'John Doe';
+        const lang = DEFAULT_LANGUAGE;
+        const greeting = lang === 'de' ? 'Hallo' : 'Hello';
+
+        console.log(numbers); // => [1, 2, 3, 4, 5]
+        console.log(greeting); // => 'Hallo'
+        console.log(TAX_RATE); // => 1.19
+      })();
+
+      // console.log(numbers); // => ReferenceError: numbers is not defined
+    </script>
+
+    <!-- Entwickler #2 -->
+    <script>
+      'use strict';
+
+      // console.log(numbers); // ReferenceError: numbers is not defined
+
+      // Einkapselung durch IFFE - Immediately Invoked Function Expression
+      (() => {
+        let numbers = ['slide01', 'slide02', 'slide03'];
+
+        const TAX_RATE = 1.07; // funktioniert, weil eingekapselt durch Code-Block
+        console.log(TAX_RATE); // => 1.07
+
+        console.log(numbers); // => ['slide01', 'slide02', 'slide03']
+      })();
+
+      // ERROR: Hier greifen wir auf eine globale Variable in einer anderen Datei zu, die vorher schon definiert worden ist
+      // const TAX_RATE = 1.0; // => SyntaxError: Identifier 'TAX_RATE' has already been declared
+    </script>
+
+    <!-- Entwickler #3 -->
+    <script>
+      'use strict';
+
+      // Einkapselung durch IFFE - Immediately Invoked Function Expression
+      (() => {
+        var fullName = 'John Doe';
+        var message =
+          DEFAULT_LANGUAGE === 'de' ? 'Hallo, Welt!' : 'Hello, World!';
+      })();
+
+      // console.log(fullName); // => ReferenceError: fullName is not defined
+      // console.log(message); // => ReferenceError: message is not defined
+    </script>
+
+    <!-- Entwickler #4 -->
+    <script>
+      'use strict';
+
+      // console.log('Entwickler #4:', fullName); // => ReferenceError: fullName is not defined
+      console.log('Entwickler #4:', message); // => ReferenceError: message is not defined
+
+      // console.log(numbers); // => ReferenceError: numbers is not defined, weil numbers (Zeile 31 & 52) mit let INNERHALB eines Code-Blocks initialisiert wurde
+      // console.log(greeting); // => ReferenceError: greeting is not defined, weil greeting (Zeile 34) mit const INNERHALB eines Code-Blocks initialisiert wurde
+    </script>
+  </body>
+</html>

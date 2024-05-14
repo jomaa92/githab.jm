@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 33: Unternehmensrebranding</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 33: Unternehmensrebranding</h1>
+
+          <p>
+            Im Zuge der Neustrukturierung deines Unternehmens möchtest du den
+            derzeitigen Domainnamen von 1,2,3 Schmidt auf hansonline ändern. Die
+            Domain lautet www.123schmidt.de. Dabei musst du jedoch die
+            vollständige URL mit Protokoll und Pfad berücksichtigen. Die beiden
+            zu ändernden URLs lauten:
+            <code>https://www.123schmidt.de/shop</code> und
+            <code>https://www.123schmidt.de/bewertungen</code>.
+          </p>
+
+          <p>
+            Die neuen URLs sollen
+            <code>https://www.hansonline.de/shop</code> und
+            <code>https://www.hansonline.de/bewertungen</code> heißen. Da du die
+            URLs in langen Texten mehrfach verwendest, hast du natürlich keine
+            Lust, jede URL von Hand anzupassen. Reguläre Ausdrücke bewahren dich
+            davor.
+          </p>
+
+          <p>
+            Nutze die dir bekannten Stringfunktionen im Zusammenhang mit
+            regulären Ausdrücken, um die Domainnamen umzubenennen. Du erhältst
+            die URLs bereits in einer gleichnamigen Variable. In dieser sollen
+            sich die aktualisierten URLs auch wieder befinden.
+          </p>
+        </div>
+
+        <div class="output alert alert-secondary"></div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const outputEl = document.querySelector('.output');
+
+      const url =
+        'https://www.123schmidt.de/shop, https://www.123schmidt.de/bewertungen';
+
+      const hackedUrl = url.replace(
+        /(https?)(:\/\/)([^/\r\n]+)/g,
+        'https://www.hansonline.de'
+      );
+
+      outputEl.textContent = hackedUrl;
+    </script>
+  </body>
+</html>

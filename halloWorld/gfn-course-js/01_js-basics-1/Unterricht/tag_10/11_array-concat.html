@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.concat()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.concat()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat"
+        >array.concat()</a
+      >
+      - Die Methode <strong>concat()</strong> führt zwei oder mehrere Arrays zu
+      einem zusammen. Die Methode ändert nicht die existierenden Arrays, sondern
+      gibt stattdessen ein neues Array zurück.
+      (<strong>Side-Effect-Free</strong>)
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      const adminUsers = ['Aurora', 'Phoenix', 'Luna', 'Atlas'];
+
+      // Array Methode concat(value1, value2, /* …, */ valueN)
+
+      // Mit concat können wir z.B. zwei Array zu einem Array schmelzen. Die Werte werden am Ende hinzugefügt.
+      const allNames = names.concat(adminUsers); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr', 'Aurora', 'Phoenix', 'Luna', 'Atlas']
+      console.log(allNames);
+
+      // Alternative Methode mit dem spread Operator
+      const alleNamen = [...names, ...adminUsers];
+      console.log(alleNamen); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr', 'Aurora', 'Phoenix', 'Luna', 'Atlas']
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for Loop (for Schleife)</title>
+  </head>
+  <body>
+    <h1>for Loop (for Schleife)</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for"
+        >for-statement</a
+      >
+      - Die <strong>for Anweisung</strong> beschreibt eine Schleife mit drei
+      optionalen Ausdrücken und einer oder mehreren Anweisungen.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = ['Tick', 'Trick', 'Track'];
+
+      // ======= Deklarativ (was ...) =======
+      names.forEach((name, index) => {
+        console.log(`index: ${index} name: ${name}`);
+      });
+
+      // ======= Imperativ (wie ...) =======
+
+      console.log('=======');
+
+      // for(initialization; condition; afterthought) { code/statement }
+
+      for (let i = 0; i < names.length; i++) {
+        // Anweisung innerhalb des Loop
+        console.log(`index: ${i} name: ${names[i]}`);
+      }
+
+      console.log('weiter im Code...');
+
+      // ====================
+
+      let numbers = [];
+
+      for (let i = 0; i < 10; i++) {
+        numbers.push(i);
+      }
+
+      console.log(numbers); // => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      console.log('weiter im Code...');
+
+      // ====================
+
+      numbers = [];
+
+      for (let zaehler = 0; zaehler < 10; zaehler += 2) {
+        numbers.push(zaehler);
+      }
+
+      console.log(numbers); // => [0, 2, 4, 6, 8]
+    </script>
+  </body>
+</html>

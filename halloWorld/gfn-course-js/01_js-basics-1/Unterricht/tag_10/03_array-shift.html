@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.shift()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.shift()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/shift"
+        >array.shift()</a
+      >
+      - Die <strong>shift()</strong> Methode entfernt das
+      <strong>erste</strong> Element eines Arrays und gibt dieses zurück. Diese
+      Methode ändert die Länge des Arrays.
+    </p>
+
+    <script>
+      'use strict';
+
+      const customers = [
+        'Heribert',
+        'Friedlinde',
+        'Tusnelda',
+        'Oswine',
+        'Ladislaus',
+      ];
+
+      console.log(customers); // => ['Heribert', 'Friedlinde', 'Tusnelda', 'Oswine', 'Ladislaus']
+
+      // Array Methode shift()
+
+      // Mit shift() entfernen wir das erste Element aus customers also "Heribert"
+      const removedCustomer = customers.shift();
+
+      console.log(customers); // => ['Friedlinde', 'Tusnelda', 'Oswine', 'Ladislaus']
+      console.log(removedCustomer); // => 'Heribert', das Element was wir entfernt hatten kriegen wir als Ausgabe zurück
+    </script>
+  </body>
+</html>

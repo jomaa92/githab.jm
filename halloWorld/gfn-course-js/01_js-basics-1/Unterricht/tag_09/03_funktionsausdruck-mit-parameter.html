@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funktionsausdruck mit Parameter</title>
+  </head>
+  <body>
+    <h1>Funktionsausdruck mit Parameter</h1>
+
+    <script>
+      'use strict';
+
+      const showNewsletter = (nutzerNamen, alter) => {
+        console.log(`Hello ${nutzerNamen}`);
+        console.log('Welcome to the newsletter');
+        console.log('Du bist ' + alter + ' Jahre alt');
+      };
+
+      // Funktionsaufruf
+      showNewsletter('Goldy'); // Hello Goldy ... Welcome to the newsletter ... Du bist undefined Jahre alt (undefined weil wir alter nicht angegeben haben)
+
+      showNewsletter('Max', 40); // Hello May ... Welcome to the newsletter ... Du bist 40 Jahre alt
+
+      // ===== Default Parameter =====
+      // Default Parameter werden mit "=" definiert
+      const multiply = (x = 2, y = 3) => console.log(x * y);
+
+      multiply(3, 5); // => 15
+      multiply(); // => 6, da x und y Defaultwerte in der Funktiondefiniton hat
+
+      // ===== Funktion mit Parameter ohne Klammern =====
+      // Bitte nicht machen, ist kein best practice
+
+      // prettier-ignore
+      const funktionOhneKlammer = text => console.log(text)
+    </script>
+  </body>
+</html>

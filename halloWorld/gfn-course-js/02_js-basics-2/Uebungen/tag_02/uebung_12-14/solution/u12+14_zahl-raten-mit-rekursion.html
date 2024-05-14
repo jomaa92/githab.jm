@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 56: Ich weiß eine Zahl, die du nicht weißt</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary my-3">
+          <h1>Übung 56: Ich weiß eine Zahl, die du nicht weißt</h1>
+          <p>
+            Programmieren Sie ein Ratespiel mit folgenden Regeln: JS »denkt«
+            sich eine Zahl zwischen 1 und 10 aus, die der Benutzer erraten muss.
+            Der Benutzer gibt seine Vermutung in einer Prompt-Box ein, und eine
+            Alert-Box teilt ihm mit, ob er
+          </p>
+          <ul>
+            <li>zu hoch geraten hat,</li>
+            <li>zu niedrig geraten hat,</li>
+            <li>oder ob die Zahl richtig ist.</li>
+          </ul>
+          <p>
+            Errät der Benutzer die Zahl, so hat er gewonnen und das Spiel endet.
+            Im anderen Fall fordert das Programm eine neue Schätzung an.
+          </p>
+        </div>
+
+        <div class="output alert alert-secondary"></div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const outputEl = document.querySelector('.output');
+
+      const numberToBeGuessed = Math.floor(Math.random() * 10) + 1;
+      let rounds = 0;
+
+      // =================== RECURSIVE FUNCTION ===================
+      //   const guessTheNumber = (question) => {
+      //     const input = Number(prompt(question));
+      //     const inputFeedback = input < numberToBeGuessed ? 'low' : 'high';
+
+      //     // Guard;
+      //     if (input === 0) return;
+      //
+      //     if (isNaN(input) || input < 1 || input > 10) {
+      //       alert(`${input} is not a valid number. Try again.`);
+      //       return guessTheNumber(`Try it again! Round: ${rounds}`);
+      //     }
+
+      //     rounds++;
+
+      //     if (input === numberToBeGuessed) {
+      //       return alert(
+      //         `Right on! Your guess is correct. You took ${rounds} rounds.`
+      //       );
+      //     } else {
+      //       alert(`Sorry, ${input} is too ${inputFeedback}! Try again.`);
+      //       return guessTheNumber(`Try it again! Round: ${rounds}`);
+      //     }
+      //   };
+
+      //   guessTheNumber(`Guess the number (between 1 and 10). Round: ${rounds}`);
+
+      // =================== WHILE LOOP ===================
+      const guessTheNumber = () => {
+        let input;
+
+        while (true) {
+          input = Number(
+            prompt(`Guess the number (between 1 and 10). Round: ${rounds}`)
+          );
+
+          // Guards
+          if (input === 0) break;
+
+          if (isNaN(input) || input < 1 || input > 10) {
+            alert(`${input} is not a valid number. Try again.`);
+            continue;
+          }
+
+          rounds++;
+
+          if (input === numberToBeGuessed) {
+            alert(
+              `Right on! Your guess is correct. You took ${rounds} rounds.`
+            );
+            break;
+          } else {
+            const inputFeedback = input < numberToBeGuessed ? 'low' : 'high';
+            alert(`Sorry, ${input} is too ${inputFeedback}! Try again.`);
+          }
+        }
+      };
+
+      guessTheNumber();
+
+      const outputHtml = `<p>The correct number was <strong>${numberToBeGuessed}</strong> and it took you <strong>${rounds} ${
+        rounds > 1 ? 'rounds' : 'round'
+      }</strong>.</p>`;
+      outputEl.innerHTML = outputHtml;
+    </script>
+  </body>
+</html>

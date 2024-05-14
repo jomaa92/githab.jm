@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.substring()</title>
+  </head>
+  <body>
+    <h1>String.substring()</h1>
+
+    <a
+      href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/substring"
+      >String.substring(startIndex, endIndex)</a
+    >
+
+    <p>
+      Die <strong>substring()</strong> Methode gibt einen Teilstring eines
+      Strings zwischen einem Index und einem anderen (EndIndex), oder dem Ende
+      der Zeichenkette zurück...
+    </p>
+
+    <script>
+      const name = 'Ladislaus Jones';
+      const spacePosition = name.indexOf(' ');
+
+      // String - Methode/Funktion => substring()
+
+      const firstName = name.substring(0, spacePosition);
+      console.log(firstName); // => 'Ladislaus'
+
+      const lastName = name.substring(spacePosition + 1);
+      console.log(lastName); // => 'Jones'
+
+      const browser = 'Mozilla';
+
+      console.log(browser.substring(1, 2)); // => 'o'
+      console.log(browser.substring(2)); // => 'zilla'
+
+      // Negative Zahlen: Bei negative Zahlen wird mit 0 gerechnet
+      console.log(
+        'https://dummyimage.com/400x300/000e90/000000.jpg'.substring(-4)
+      ); // => 'https://dummyimage.com/400x300/000e90/000000.jpg'
+
+      console.log('lorem ipsum'.substring(999)); // => ''
+      console.log('lorem ipsum'.substring(-999)); // => 'lorem ipsum'
+
+      console.log('Hallo'.substr()); // => 'Hallo', default bei from/startIndex ist 0
+    </script>
+  </body>
+</html>

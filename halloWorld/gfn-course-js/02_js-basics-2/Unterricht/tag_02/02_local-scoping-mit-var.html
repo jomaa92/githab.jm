@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>local scoping (Gültigkeitsbereiche) von var</title>
+  </head>
+  <body>
+    <h1>local scoping (Gültigkeitsbereiche) von var</h1>
+
+    <p>
+      Variablen mit <code>var</code> die innerhalb von Code-Blöcken ({...})
+      definiert werden, sind außerhalb zugreifbar. Die geschweiften Klammern {}
+      kapseln die <code>var</code>Variablen NICHT ab.
+    </p>
+
+    <p>
+      Die einzige Ausnahme sind Funktionen, da werden Variablen mit
+      <code>var</code> eingekapselt in der Funktion.
+    </p>
+    <script>
+      'use strict';
+
+      // b definieren wir global
+      var b = 1;
+
+      b = 2;
+
+      console.log(b); // => 2
+
+      // "{...}" wird als Code-Block bezeichnet
+
+      // ===== if Statements als Code-Block =====
+      if (true) {
+        var a = 1; // Variablendefinition mit var haben KEINEN eigenen Gültigkeitsbereich innerhalb von Code-Blöcken ({...}), damit sind sie global gültig
+
+        const c = 4;
+
+        console.log(b); // => 2
+
+        b = 3;
+
+        console.log(b); // => 3
+        console.log(a); // => 1
+        console.log(c); // => 4
+      }
+
+      console.log('a außerhalb von if-statement:', a); // => 'a außerhalb von if-statement:' 1 <-- FUNKTIONIERT!!!
+      console.log(b); // => 3
+      // console.log(c); // => ReferenceError: c is not defined
+
+      // ===== Funktionen als Code-Block =====
+      const testFunktion = () => {
+        var d = 'text'; // Mit var innerhalb von Funktionen ist der eigene Gültigkeitsbereich in Funktionen
+
+        b = 5;
+
+        console.log('b in testFunktion', b); // => 'b in testFunktion' 5
+
+        let a = 2;
+        console.log('a in testFunktion', a); // => 'a in testFunktion' 2
+
+        d = d + b;
+        console.log(d); // => 'text5'
+
+        // In Code-Blöcken von Funktionen IMMER einen return Statement verwenden
+        return d;
+      };
+
+      console.log('b vor testFunktion:', b); // => 'b vor testFunktion:' 3
+      const ergebnis = testFunktion();
+      console.log('b nach testFunktion:', b); // => 'b nach testFunktion:' 5
+
+      // Ausnahme bei var: nicht zugreifbar, wenn die var Variable in einer Funktionen deklariert wurde
+      // console.log(d); // => ReferenceError: d is not defined
+      console.log(ergebnis); // => 'text5'
+
+      // ===== Schleifen als Code-Block =====
+      for (var i = 0; i < 3; i++) {
+        console.log(i); // => 0, 1, 2 in der Reihenfolge
+      }
+
+      console.log('i von for Schleife:', i); // => 'i von for Schleife:' 3
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaN - Paradoxon</title>
+  </head>
+  <body>
+    <h1>NaN - Paradoxon</h1>
+
+    <script>
+      'use strict';
+
+      // NaN: "Not-A-Number", ist eine Eigenschaft in JavaScript und hat den Datentyp "number"
+      console.log(Number('Apple')); // => NaN (Typ: number)
+      console.log(Number('Apple 2000')); // => NaN (Typ: number)
+
+      console.log('Drei' * 3); // => NaN (Typ: number)
+      console.log('3€' * 3); // => NaN (Typ: number)
+
+      console.log(Number('1,25') * 3); // => NaN (Typ: number)
+      console.log(Number('1.25') * 3); // => 3.75 (Typ: number)
+      console.log('1.25' + 3); // => '1.253' (Typ: string)
+
+      console.log('DE: 1.000.000,00');
+      console.log('EN: 1,000,000.00');
+
+      console.log('         2         ' * 5); // => 10 (Typ: number)
+      console.log(Number('         2         ') * 5); // => 10 (Typ: number)
+
+      console.log(typeof NaN); // => 'number' (Typ: string)
+      console.log(NaN * 100); // => NaN (Typ: number)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.substr()</title>
+  </head>
+  <body>
+    <h1>String.substr()</h1>
+
+    <a
+      href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/substr"
+      >String.substr(startIndex, length)</a
+    >
+
+    <p>
+      Die Methode <strong>substr()</strong> gibt die Zeichen eines Strings in
+      einem gegebenen Intervall zurück.
+    </p>
+
+    <script>
+      'use strict';
+
+      const name = 'Ladislaus Jones';
+      const spacePosition = name.indexOf(' ');
+
+      // String - Methode/Funktion => substr()
+
+      const firstName = name.substr(0, spacePosition);
+      console.log(firstName); // => 'Ladislaus'
+
+      const lastName = name.substr(spacePosition + 1);
+      console.log(lastName); // => 'Jones'
+
+      const browser = 'Mozilla';
+
+      console.log(browser.substr(1, 2)); // => 'oz'
+      console.log(browser.substr(2)); // => 'zilla'
+
+      // Negative Zahlen: Bei negativer Zahl wird "str.length - WERT" gerechnet
+      console.log(
+        'https://dummyimage.com/400x300/000e90/000000.jpg'.substr(-4)
+      ); // => '.jpg'
+
+      console.log('lorem ipsum'.substr(999)); // => ''
+      console.log('lorem ipsum'.substr(-999)); // => 'lorem ipsum'
+
+      console.log('Hallo'.substr()); // => 'Hallo', default bei from/startIndex ist 0
+    </script>
+  </body>
+</html>

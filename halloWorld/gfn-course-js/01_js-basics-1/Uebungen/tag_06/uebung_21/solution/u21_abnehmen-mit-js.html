@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 21: Abnehmen mit JS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 21: Abnehmen mit JS</h1>
+
+          <p>
+            Heute schreibst du ein kleines Motivations-Tool für Menschen, die
+            ein bisschen abnehmen möchten.
+          </p>
+          <ol>
+            <li>
+              Frage den Anwender zuerst nach seinem gestrigen und dann nach
+              seinem heutigen Gewicht und speicher die Antworten jeweils in
+              einer Variable.
+            </li>
+            <li>
+              Für den Fall, dass das heutige Gewicht geringer ist als das
+              gestrige, berechnest du die Verringerung in Prozent und gibst eine
+              begeisterte Gratulation unter Angabe der Gewichtsreduktion in
+              ganzen Prozent aus. Vielleicht fällt dir ja auch eine kleine
+              Belohnung für den Anwender ein …
+            </li>
+            <li>
+              Für den Fall, dass das heutige Gewicht höher ist als das gestrige,
+              rechnest du auch diese Veränderung in Prozent um und gibst unter
+              Angabe der Gewichtszulage in Prozent eine mahnende Nachricht aus.
+              Vielleicht mit der Aufforderung zu einer Aktivität?
+            </li>
+            <li>
+              Für den Fall, dass das Gewicht identisch ist, feuerst du den
+              Anwender an, sich ein bisschen mehr zu bemühen und dranzubleiben.
+            </li>
+          </ol>
+        </div>
+
+        <form class="form-weight-calculator" method="post">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="mb-3">
+                <label for="input-weight-before" class="form-label"
+                  >Gewicht von Gestern?</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="input-weight-before"
+                  name="weightBefore"
+                />
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-md-6">
+              <div class="mb-3">
+                <label for="input-weight-today" class="form-label"
+                  >Gewicht von Heute?</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="input-weight-today"
+                  name="weightToday"
+                />
+              </div>
+            </div>
+            <!-- ▲ /.col ▲ -->
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <button type="submit" class="btn btn-dark button-calculate">
+                  Rechnen
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const formEl = document.querySelector('.form-weight-calculator');
+      const inputWeightBeforeEl = document.querySelector(
+        '#input-weight-before'
+      );
+      const inputWeightTodayEl = document.querySelector('#input-weight-today');
+
+      formEl.addEventListener('submit', (e) => {
+        e.preventDefault(); // Standardverhalten unterbinden
+
+        const weightBefore = Number(inputWeightBeforeEl.value);
+        const weightToday = Number(inputWeightTodayEl.value);
+
+        // If lost weight
+        if (weightToday < weightBefore) {
+          const diff = (1 - weightToday / weightBefore) * 100;
+          alert(`Congrats! You have lost ${Math.round(diff)}% weight.`);
+        }
+
+        // If gained weight
+        if (weightToday > weightBefore) {
+          const diff = (weightToday / weightBefore - 1) * 100;
+          alert(
+            `Uh-oh! You have gained ${Math.round(diff)}%. Better watch out!`
+          );
+        }
+
+        // If weight is identical
+        if (weightToday === weightBefore) {
+          alert(
+            "That's all right, keep it up and you'll soon start to lose weight!"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

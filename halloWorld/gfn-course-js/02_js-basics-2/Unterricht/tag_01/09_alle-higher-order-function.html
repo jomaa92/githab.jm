@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alle Higher Order Array Funktionen</title>
+  </head>
+  <body>
+    <h1>Alle Higher Order Array Funktionen</h1>
+
+    <script>
+      'use strict';
+
+      let numbers = [1, 2, 3, 4, 5];
+      let results;
+      let result;
+
+      /**
+       * array.sort() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+       *
+       * array.sort([compareFunction]) - Methode sortiert die Elemente eines Arrays in-place und gibt das Array zurück. Standardmäßig werden alle Elemente in Strings umgewandelt und dann anhand ihrer UTF-16 Codepoints miteinander verglichen.
+       **/
+
+      // Kopie vom Array numbers
+      let sortNumbers = numbers.slice(); //[...numbers];
+
+      sortNumbers.sort((n1, n2) => n2 - n1); // => [5, 4, 3, 2, 1]
+      console.log('array.sort() :', sortNumbers);
+
+      /**
+       * array.map() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+       * array.map(function callback(currentValue[, index[, array]]) - wendet auf jedes Element des Arrays die bereitgestellte Funktion an und gibt das Ergebnis in einem neuen Array zurück.
+       **/
+
+      results = numbers.map((x) => x * x); // => [1, 4, 9, 16, 25]
+      console.log('array.map() :', results);
+
+      /**
+       * array.flatMap() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
+       *
+       * array.flatMap(callback(currentValue[, index[, array]])[, thisArg]) - Methode bildet jedes Element über eine Funktion ab und flacht das Ergebnis in ein Array ab. Sie ist identisch zu einem map gefolgt von einem flat der Tiefe 1, aber flatMap ist oft nützlich und beide in einer Methode zusammenführen ist etwas effizienter.
+       **/
+
+      numbers.flatMap((x) => [x * 2, x * x]); // => [2, 1, 4, 4, 6, 9, 8, 16, 10, 25]
+
+      results = [1, 2].map((n) => [2, 2]); // => [[2,2],[2,2]]
+      results.flat(); // => [2, 2, 2 ,2]
+
+      results = [1, 2].flatMap((n) => [2, 2]); // =>  [2, 2, 2, 2]
+      console.log('array.flatMap() :', results);
+
+      /**
+       * array.filter() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+       *
+       * array.filter(callback(element[, index[, array]])[, thisArg]) -  erstellt ein neues Array mit allen Elementen, die den von der bereitgestellten Funktion implementierten Test bestehen.
+       **/
+
+      let even = (x) => x % 2 === 0;
+      results = numbers.filter(even); // => [2, 4]
+      console.log('array.filter() :', results);
+
+      /**
+       * array.reduce() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+       *
+       * array.reduce(callback[, initialValue]); - reduziert ein Array auf einen einzigen Wert, indem es jeweils zwei Elemente (von links nach rechts) durch eine gegebene Funktion reduziert.
+       **/
+
+      result = numbers.reduce((x, y) => x + y);
+      // => 1 + 2 + 3 + 4 + 5 => 15
+      console.log('array.reduce() :', result);
+
+      numbers.reduce((x, y) => x + y, 10);
+      // => 10 + 1 + 2 + 3 + 4 + 5 => 25
+
+      /**
+       * array.reduceRight() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight
+       *
+       * array.reduceRight(callback[, initialValue]); - Methode wendet eine Funktion gegen einen Akkumulator auf jeden Wert des Arrays (von rechts nach links) auf und reduziert es um einen einzelnen Wert.
+       **/
+
+      result = numbers.reduceRight((x, y) => x - y);
+      // => 5 - 4 - 3 - 2 - 1 => -5
+      console.log('array.reduceRight() :', result);
+
+      // results = numbers.reverse().reduce((x, y) => x - y);
+      // console.log("arr.reduceRight() :", results);
+
+      /**
+       * array.every() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+       *
+       * array.every(callback[, thisArg]) - Methode testet ob alle Elemente in einem Array einen Test bestehen, welcher mittels einer implementierten Funktion bereitgestellt wird.
+       **/
+
+      result = numbers.every((x) => x % 2 === 0); // => false
+
+      console.log('array.every() :', result);
+
+      /**
+       * array.some() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+       *
+       * array.some(callback[, thisArg]) - überprüft ob mindestens ein Element des Arrays den als Funktion übergebenen Kriterien entspricht.
+       **/
+
+      result = numbers.some((x) => x % 2 === 0); // => true
+      console.log('array.some() :', result);
+
+      /**
+       * array.forEach() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+       *
+       * array.forEach(function callback(currentValue [, index [, array]]) {…}[, thisArg]); - führt eine übergebene Funktion für jedes Element eines Arrays aus.
+       **/
+
+      result = numbers.forEach((x) => {
+        console.log(x);
+      });
+
+      console.log('array.forEach() :', result);
+
+      /**
+       * array.find() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+       *
+       * array.find(callback[, thisArg]) - gibt den Wert des Elements eines Arrays zurück, welches als erstes die Bedingung einer bereitgestellten Testfunktion erfüllt. Andernfalls wird undefined zurückgegeben.
+       **/
+
+      result = numbers.find((x) => x % 2 === 0);
+      console.log('array.find() :', result); // => 2
+
+      /**
+       * array.findIndex() - https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+       *
+       * array.findIndex(callback[, thisArg]) - gibt den Index des Elements eines Arrays zurück, welches als erstes die Bedingung einer bereitgestellten Testfunktion erfüllt. Andernfalls wird -1 zurückgegeben.
+       **/
+
+      result = numbers.findIndex((x) => x % 2 === 0);
+      console.log('array.findIndex() :', result); // => 1
+    </script>
+  </body>
+</html>

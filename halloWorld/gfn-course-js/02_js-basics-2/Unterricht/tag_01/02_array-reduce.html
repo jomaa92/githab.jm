@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.reduce()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.reduce()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"
+        >array.reduce()</a
+      >
+      - Die <strong>reduce()</strong>-Methode reduziert ein Array auf einen
+      einzigen Wert, indem es jeweils zwei Elemente (von links nach rechts)
+      durch eine gegebene Funktion reduziert.
+      <code>(side-effect-free)</code>
+    </p>
+
+    <script>
+      'use strict';
+
+      // Array Methode reduce(callbackFunction(value1, value2, index?, array?), initialValue)
+
+      // ==== reduce mit Zahlen ====
+      const nums = [10, 25, '45', 19];
+
+      const sum = nums.reduce((a, b) => Number(a) + Number(b));
+      console.log(sum); // => 99
+
+      // ==== reduce mit Strings ====
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      console.log(
+        names.reduce((name1, name2) => {
+          return `${name1}, ${name2}`;
+          // return name1 + ', ' + name2;
+        })
+      ); // => 'Aurelia, Cassius, Seraphina, Persephone, Maximilian, Phoebe, Roman, Valentina, Zephyr'
+
+      // ==== reduce mit einem Array, was nur einen Wert hat ====
+      console.log([100].reduce((x, y) => x + y)); // => 100
+
+      // ==== reduce mit einem leeren Array ====
+      // console.log([].reduce((x, y) => x + y)); // => Uncaught TypeError: Reduce of empty array with no initial value
+
+      // ==== reduce mit einem Startwert (initialValue) ====
+      console.log([].reduce((x, y) => x + y, 0)); // => 0, der initialValue da wir ein leeres Array haben
+
+      console.log([1, 2, 3, 4].reduce((x, y) => x + y, 50)); // => 60, quasi reduce ergebnis + initialValue (10 + 50)
+
+      // ==== Die Länge aller Namen addieren ====
+      const namesLength = names.reduce((result, newName) => {
+        return result + newName.length;
+      }, 0);
+
+      console.log(namesLength); // => 69, die Länge aller Namen addiert
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if else - Verzweigung</title>
+  </head>
+  <body>
+    <h1>if else - Verzweigung</h1>
+
+    <pre>
+        <code>
+            if (Bedingung) {
+                ... Anweisung
+            } else {
+                ... Anweisung
+            }
+        </code>
+    </pre>
+
+    <script>
+      'use strict';
+
+      const SOLUTION = 42;
+
+      // Rückgabe von prompt ist ein String, deswegen Number()
+      const answer = Number(prompt("What's the result of 6 * 7"));
+
+      // Wenn die Bedingung erfüllt ist, wird NUR der Code innerhalb des IF Block ausgeführt und NICHT vom ELSE Block
+      if (answer === SOLUTION) {
+        console.log(`${answer} is correct!`);
+        console.log('Congratulations, you are a genius!');
+      } else {
+        console.log("Wrong. Math isn't exactly your strong point, is it?");
+      }
+
+      console.log('...weiter im Code');
+    </script>
+  </body>
+</html>

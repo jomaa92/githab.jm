@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 21: Abnehmen mit JS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 21: Abnehmen mit JS</h1>
+
+          <p>
+            Heute schreibst du ein kleines Motivations-Tool für Menschen, die
+            ein bisschen abnehmen möchten.
+          </p>
+          <ol>
+            <li>
+              Frage den Anwender zuerst nach seinem gestrigen und dann nach
+              seinem heutigen Gewicht und speicher die Antworten jeweils in
+              einer Variable.
+            </li>
+            <li>
+              Für den Fall, dass das heutige Gewicht geringer ist als das
+              gestrige, berechnest du die Verringerung in Prozent und gibst eine
+              begeisterte Gratulation unter Angabe der Gewichtsreduktion in
+              ganzen Prozent aus. Vielleicht fällt dir ja auch eine kleine
+              Belohnung für den Anwender ein …
+            </li>
+            <li>
+              Für den Fall, dass das heutige Gewicht höher ist als das gestrige,
+              rechnest du auch diese Veränderung in Prozent um und gibst unter
+              Angabe der Gewichtszulage in Prozent eine mahnende Nachricht aus.
+              Vielleicht mit der Aufforderung zu einer Aktivität?
+            </li>
+            <li>
+              Für den Fall, dass das Gewicht identisch ist, feuerst du den
+              Anwender an, sich ein bisschen mehr zu bemühen und dranzubleiben.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const weightYesterday = Number(prompt('What was your weight yesterday?'));
+      const weightToday = Number(prompt('And what´s your weight today?'));
+
+      const weightChangeInPercent = Math.round(
+        (Math.abs(weightToday - weightYesterday) / weightYesterday) * 100
+      );
+
+      // Schreibeweise #1
+      /*    
+      if (weightYesterday < weightToday) {
+        console.log(
+          `I can´t believe it! You are ${weightChangeInPercent} percent heavier than yesterday!\nYou have to run ten times around your house!`
+        );
+      }
+
+      if (weightYesterday > weightToday) {
+        console.log(
+          `Congrats! I am so proud of you. Your weight is ${weightChangeInPercent} percent less than yesterday!!!\nDo you wanna have a cookie? (There is an delicious recipe in this book...)`
+        );
+      }
+
+      if (weightYesterday === weightToday) {
+        console.log(
+          'Your weight is still the same. Nothing changed. Now, take a deep breath, look inside yourself, think about your goals and now: JUMP OUT OF YOUR CHAIR AND START A WORKOUT'
+        );
+      } 
+      */
+
+      // Schreibweise #2
+      if (weightYesterday < weightToday) {
+        console.log(
+          `I can´t believe it! You are ${weightChangeInPercent} percent heavier than yesterday!\nYou have to run ten times around your house!`
+        );
+      } else if (weightYesterday > weightToday) {
+        console.log(
+          `Congrats! I am so proud of you. Your weight is ${weightChangeInPercent} percent less than yesterday!!!\nDo you wanna have a cookie? (There is an delicious recipe in this book...)`
+        );
+      } else if (weightYesterday === weightToday) {
+        console.log(
+          'Your weight is still the same. Nothing changed. Now, take a deep breath, look inside yourself, think about your goals and now: JUMP OUT OF YOUR CHAIR AND START A WORKOUT'
+        );
+      }
+    </script>
+  </body>
+</html>

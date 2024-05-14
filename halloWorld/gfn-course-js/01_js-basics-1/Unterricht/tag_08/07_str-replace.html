@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.replace()</title>
+  </head>
+  <body>
+    <h1>String.replace()</h1>
+
+    <a
+      href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace"
+      >String.replace(searchValue, replaceValue)</a
+    >
+
+    <p>
+      Die <strong>replace()</strong>-Methode gibt eine neue Zeichenkette zurück,
+      in der einige oder alle Übereinstimmungen mit einem
+      <strong>Muster</strong> durch einen Ersatz ausgetauscht wurden. Das
+      <strong>Muster</strong> kann eine Zeichenkette oder eine
+      <code>RegExp</code> sein, als Ersatz dienen eine Zeichenkette oder eine
+      Funktion, welche für jede Übereinstimmung aufgerufen wird.
+    </p>
+
+    <script>
+      'use strict';
+
+      const productName = 'Prescription Mug';
+      const productDescription =
+        "Prescription Mug: Coffee Mug which looks like a drug bottle. Your Prescription Mug is a great conversation starter. Great for the caffeine addict in your life — one that doesn't need an intervention. You will love your Prescription Mug.";
+      const newProductName = 'Drug Mug';
+
+      // String - Methode/Funktion => replaceAll()
+      console.log(productDescription.replaceAll(productName, newProductName));
+
+      // String - Methode/Funktion => replace()
+      console.log(
+        'Hallo JavaScript. JavaScript ist super!'.replace('JavaScript', 'PHP')
+      ); // => 'Hallo PHP. JavaScript ist super!'
+
+      // Mit Reguläre Ausdrücke
+      // Der Buchstabe g steht für global und sorgt dafür, dass replace Ersetzungen im ganzen Text durchführt, statt nur an der ersten Stelle
+      console.log(
+        'Hallo JavaScript. JavaScript ist super!'.replace(/JavaScript/g, 'PHP')
+      ); // => 'Hallo PHP. PHP ist super!'
+    </script>
+  </body>
+</html>

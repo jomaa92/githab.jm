@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.push()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.push()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push"
+        >array.push()</a
+      >
+      - Die <strong>push()</strong> Methode fügt ein oder mehrere Elemente am
+      Ende eines Arrays hinzu und gibt die neue Länge des Arrays zurück.
+    </p>
+
+    <script>
+      'use strict';
+
+      const customers = [
+        'Heribert',
+        'Friedlinde',
+        'Tusnelda',
+        'Oswine',
+        'Ladislaus',
+      ];
+
+      console.log(customers.length); // => 5
+
+      // Array Methode push(element1, element2, /* …, */ elementN)
+
+      // Mit der push()-Methode fügen wir "Goldy" am Ende des Array customers hinzu
+      const newCustomer = customers.push('Goldy');
+
+      // Die Rückgabe von push ist NICHT das array selber, sondern die neue Länge des Array
+      console.log(newCustomer); // => 6, die neue Länge des Array
+
+      console.log(customers); // => ['Heribert', 'Friedlinde', 'Tusnelda', 'Oswine', 'Ladislaus', 'Goldy']
+    </script>
+  </body>
+</html>

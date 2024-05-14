@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Times Helper Function</title>
+  </head>
+  <body>
+    <h1>Times Helper Function</h1>
+
+    <script>
+      'use strict';
+
+      // Sehr simple line Funktion mit Array(n).fill(char).join('')
+      const lineSimple = (n, char) => {
+        return Array(n).fill(char).join('');
+      };
+
+      console.log(lineSimple(10, '🚀'));
+
+      // Times Helper Function
+      const times = (n, fn) => {
+        const result = Array(n).fill(0); // => z.B. wenn n = 5 ist [0, 0, 0, 0, 0]
+        console.log(result);
+        result.forEach((x, i, ar) => (ar[i] = fn(i)));
+        return result;
+      };
+
+      console.log(times(3, () => '💻')); // => ['💻', '💻', '💻']
+      console.log(times(5, () => '*')); // => ['*', '*', '*', '*', '*']
+      console.log(times(4, (index) => index + 2)); // => [2, 3, 4, 5]
+
+      const names = ['Tick', 'Trick', 'Track'];
+
+      console.log(times(3, (idx) => idx + 1 + ' Rank: ' + names[idx])); // => ['1 Rank: Tick', '2 Rank: Trick', '3 Rank: Track']
+    </script>
+  </body>
+</html>

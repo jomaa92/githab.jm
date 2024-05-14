@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unärer Operator bzw. Nicht Operator - negation (!)</title>
+  </head>
+  <body>
+    <h1>Unärer Operator bzw. Nicht Operator - negation (!)</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT"
+        >logischen Nicht-Operator (Logical NOT)</a
+      >
+      Der logische Operator NOT (!) (logisches Komplement, Negation) wandelt
+      "truthy" in "falsy" um und umgekehrt. Er wird normalerweise mit booleschen
+      (logischen) Werten verwendet. Bei nicht-booleschen Werten gibt er "falsy"
+      zurück, wenn sein einzelner Operand in "truthy" umgewandelt werden kann;
+      andernfalls gibt er "truthy" zurück.
+    </p>
+
+    <script>
+      'use strict';
+
+      const number = Number(prompt('Please enter a number'));
+
+      // isNaN() überprüft ob etwas KEINE Zahl ist
+      // !isNaN() mit dem NOT Operator überprüft ob etwas eine Zahl IST
+      if (!isNaN(number)) {
+        console.log(`Correct - ${number} is a number`);
+      } else {
+        console.log(`${number} is NOT a number`);
+      }
+
+      let toggle = false;
+
+      console.log(toggle); // => false
+      console.log(!toggle); // => true
+    </script>
+  </body>
+</html>

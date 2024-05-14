@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.fill()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.fill()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/fill"
+        >array.fill()</a
+      >
+      - Die <strong>fill()</strong> Methode befüllt ein Array mit einem
+      statischen Wert von einem Startindex bis zu einem Endindex. Der Endindex
+      wird nicht mit eingeschlossen.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Methode fill(value, start, end)
+
+      // new Array() wird im Hintergrund aufgerufen wenn wir []-Klammern nutzen, um ein Array zu erstellen
+      const arrayZero = new Array(10).fill(0);
+      console.log(arrayZero); // => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+      // fill() fügt nur Elemente ein bis maximal der Länge des Array, auch wenn der "Endindex" größer als die Länge ist. Also das Array wird nicht größer durch fill
+      console.log(names.fill('Wayne', 15, 22)); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Wayne', 'Wayne', 'Wayne']
+    </script>
+  </body>
+</html>

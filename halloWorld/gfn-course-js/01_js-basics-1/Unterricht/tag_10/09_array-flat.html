@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.flat()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.flat()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/flat"
+        >array.flat()</a
+      >
+      - Die <strong>flat()</strong> Methode erstellt rekursiv ein neues Array
+      mit allen Elementen von Unterarrays bis zu einer spezifizierten Tiefe.
+    </p>
+
+    <script>
+      'use strict';
+
+      // Mehrdimensionales Array (verschachtelt)
+      const breakoutSessions = [
+        ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus'],
+        ['Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity'],
+        ['Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian'],
+        ['Phoebe', 'Roman', 'Valentina', 'Zephyr'],
+      ];
+
+      console.log(breakoutSessions); // => [Array(4), Array(5), Array(5), Array(4)]
+
+      // Array Methode flat() oder optional flat(depths)
+
+      console.log(breakoutSessions.flat()); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr']
+    </script>
+  </body>
+</html>

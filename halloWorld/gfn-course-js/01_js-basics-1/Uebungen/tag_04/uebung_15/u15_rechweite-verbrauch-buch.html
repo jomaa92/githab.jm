@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 15: Reichweite & Verbrauch</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 15: Reichweite & Verbrauch</h1>
+          <ol>
+            <li>
+              Schreibe ein Programm zur Kraftstoffverbrauchsberechnung für Pkws.
+              Der Benutzer soll die gefahrenen Kilometer (Strecke) und die
+              verbrauchte Benzinmenge angeben. Das Programm ermittelt daraufhin
+              den Kraftstoffverbrauch auf 100 km und gibt ihn aus.
+
+              <blockquote>
+                <strong>Hinweis:</strong> Verwende folgende Formel:<br />
+                <code
+                  >Verbrauch [l/100km] = Benzinmenge [l] / Strecke [km] ×
+                  100</code
+                >
+              </blockquote>
+            </li>
+            <li>
+              Erweitere das Programm derart, dass das Programm den Benutzer
+              außerdem nach seiner Tankgröße fragt und ergänzend die maximale
+              Reichweite in Kilometern berechnet.
+
+              <blockquote>
+                <strong>Hinweis:</strong> Verwende folgende Formel:<br />
+                <code>
+                  Reichweite [km] = Tankgröße [l] × Strecke [km] / Benzinmenge
+                  [l]
+                </code>
+              </blockquote>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const totalGasConsumed = prompt('How much fuel did you consume?');
+      const distance = prompt('How many km did you travel?');
+      const tankSize = prompt('How many liters of gasoline fits in your tank?');
+
+      const consumption = (totalGasConsumed / distance) * 100;
+      const maxDistance = (tankSize * distance) / totalGasConsumed;
+
+      console.log(
+        `Your car has a consumption of ${consumption.toFixed(
+          2
+        )} liter per 100 kilometers.\nYou can travel ${maxDistance.toFixed(
+          2
+        )} km with a full tank.`
+      );
+    </script>
+  </body>
+</html>

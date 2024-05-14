@@ -1,0 +1,49 @@
+<!-- Dokument Typ Definition, gibt an, dass es sich um ein HTML Dokument handelt -->
+<!DOCTYPE html>
+
+<!-- Markiert den Beginn des HTML Dokuments -->
+<html lang="en">
+  <!-- <head> Kopfbereich des Dokuments -->
+  <head>
+    <!-- Meta-Tags für die Kodierung des Dokuments. UTF-8 ist am weitesten verbreitet und unterstützt die meisten Zeichen -->
+    <meta charset="UTF-8" />
+
+    <!-- Meta-Tags für mobile Geräte. Die Breite der Webseite entspricht der Breite des Geräts und der Zoom ist auf 100% gesetzt -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Name des HTML Dokuments, wird im Browser-Tab angezeigt -->
+    <title>HTML Grundgerüst</title>
+
+    <!-- Internal CSS -->
+    <style>
+      body {
+        background-color: #f0f0f0;
+      }
+    </style>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- <body> Hauptbereich des Dokuments -->
+  <body>
+    <!-- nav.menu-main>ul.list>li*3>{Eintrag 0$}> -->
+    <nav class="menu-main">
+      <ul class="list">
+        <li>Eintrag 01</li>
+        <li>Eintrag 02</li>
+        <li>Eintrag 03</li>
+      </ul>
+    </nav>
+
+    <h1>Header 1</h1>
+
+    <!-- Internal JavaScript -->
+    <script>
+      console.log('Hallo');
+    </script>
+
+    <!-- External JavaScript -->
+    <script src="main.js"></script>
+  </body>
+</html>

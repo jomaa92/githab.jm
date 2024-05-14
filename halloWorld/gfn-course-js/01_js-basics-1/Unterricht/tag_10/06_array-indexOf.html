@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.indexOf()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.indexOf()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
+        >array.indexOf()</a
+      >
+      - Die Methode <strong>indexOf()</strong> gibt den Index zurück, an dem ein
+      bestimmtes Element im Array zum ersten Mal auftritt oder
+      <code>-1</code> wenn es nicht vorhanden ist.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Methode indexOf(searchElement)
+
+      console.log(names.indexOf('Gideon')); // => 9
+
+      console.log(names.indexOf('Aurelia')); // => 0
+
+      console.log(names.indexOf('Roman')); // => 15
+
+      console.log(names.indexOf('Max')); // => -1, weil der Name Max nicht im Array names vorhanden ist
+
+      // Array Methode lastIndexOf(searchElement)
+
+      console.log(names.lastIndexOf('Gideon')); // => 9
+
+      console.log(['eins', 'zwei', 'drei', 'vier', 'zwei'].indexOf('zwei')); // => 1
+      console.log(['eins', 'zwei', 'drei', 'vier', 'zwei'].lastIndexOf('zwei')); // => 4
+
+      console.log(['eins', 'zwei', 'drei', 'vier', 'zwei'].lastIndexOf('fünf')); // => -1, weil 'fünf' existiert nicht im Array
+    </script>
+  </body>
+</html>

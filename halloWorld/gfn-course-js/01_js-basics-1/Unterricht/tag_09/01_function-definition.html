@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Definition</title>
+  </head>
+  <body>
+    <h1>Function Definition</h1>
+
+    <script>
+      'use strict';
+
+      // ======== Funktionsdefinition über das function Keyword ========
+      function showNewsletterInConsole() {
+        // ... code
+        console.log('Dear Customer,\n');
+        console.log(
+          "We're pleased to inform you that NerdWorld is making a number of new discounts available to you. Please visit http://www.nerdworld.example/discounts for detailed information."
+        );
+      }
+
+      // Funktionsaufruf
+      showNewsletterInConsole(); // => hier rufen wir die Funktion auf
+
+      // ======== NEUE Funktionsdefinition mit Fat Arrow (=>) seit ES6 ========
+      const showNewsletter = () => {
+        // ... code
+        console.log('Show Newsletter');
+      };
+
+      // Funktionsaufruf
+      showNewsletter(); // => hier rufen wir die Funktion auf
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>console.log()</title>
+  </head>
+  <body>
+    <h1>console.log()</h1>
+
+    <script>
+      // Es gibt den semikolonlosen Stil und Semikolon-Stil
+      // In JavaScript ist es nicht notwendig, ein Semikolon am Ende einer Anweisung zu setzen.
+      // Durch den Mechanismus des automatischen Semikoloneinfügens wird ein Semikolon am Ende einer Anweisung eingefügt, wenn es nicht vorhanden ist.
+      // Der wird auch "Automatic Semicolon Insertion" (ASI) genannt.
+
+      // Wir nutzen Prettier, um den Code zu formatieren. Prettier nutzt den Semikolon-Stil, basierend auf den Airbnb JavaScript Style Guide.
+
+      console.log('Hallo, Welt!');
+
+      console.log(10);
+
+      console.log('Max', 'Mustermann', 32);
+
+      // Warnung
+      console.warn('Das ist eine Warnung!');
+
+      // Error
+      console.error('Etwas ist schief gelaufen!');
+
+      // Info
+      console.info('Infomeldung!');
+
+      // Tabelle
+      console.table(['A', 'B']);
+      console.table({ firstName: 'John' });
+    </script>
+  </body>
+</html>

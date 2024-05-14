@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Klingon Letter Opener",
+    "category": ["Office Warfare", "StarTrek"],
+    "availableSince": 2007
+  },
+  {
+    "name": "3Doodler 3D Printing Pen",
+    "category": ["Design", "Hits for Kids"],
+    "availableSince": 1999
+  },
+  {
+    "name": "8-Bit Heat-Change Mug",
+    "category": ["Coffee Equipment"],
+    "availableSince": 2016
+  }
+]

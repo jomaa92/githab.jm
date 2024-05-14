@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.pop()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.pop()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/pop"
+        >array.pop()</a
+      >
+      - Die <strong>pop()</strong> Methode entfernt das
+      <strong>letzte</strong> Element eines Arrays und gibt dieses zurück. Diese
+      Methode ändert die Länge des Arrays.
+    </p>
+
+    <script>
+      'use strict';
+
+      const customers = [
+        'Heribert',
+        'Friedlinde',
+        'Tusnelda',
+        'Oswine',
+        'Ladislaus',
+      ];
+
+      // Array Methode pop()
+
+      // Mit pop() entfernen wir das letzte Element aus dem Array customers, also "Ladislaus"
+      const lastEntry = customers.pop();
+
+      // Die Rückgabe von pop() ist das entfernte Element
+      console.log(lastEntry); // => 'Ladislaus'
+
+      console.log(customers); // => ['Heribert', 'Friedlinde', 'Tusnelda', 'Oswine']
+    </script>
+  </body>
+</html>

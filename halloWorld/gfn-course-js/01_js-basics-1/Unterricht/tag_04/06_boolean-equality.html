@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolean Equality</title>
+  </head>
+  <body>
+    <h1>Boolean Equality</h1>
+
+    <script>
+      'use strict';
+
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+      // Boolean repräsentiert einen Wert der einer von zwei Zuständen sein kann
+      // true ODER false
+
+      console.log(3 < 7); // => true (Typ: boolean)
+      console.log(typeof (3 < 7)); // => 'boolean' (Typ: string)
+
+      console.log(typeof true); // => 'boolean' (Typ: string)
+      console.log(3 > 5); // => false (Typ: boolean)
+
+      console.log(4567 === 4567); // => true (Typ: boolean)
+      console.log(4567 !== 4567); // => false, ! NOT Operator (ungleich)
+
+      console.log('Ladislaus' === 'Ladislaus'); // => true (Typ: boolean)
+      console.log('Ladislaus' === 'ladislaus'); // => false (Typ: boolean)
+      console.log('Ladislaus' == 'ladislaus'); // => false (Typ: boolean)
+      console.log('Oswine' === 'Ladislaus'); // false (Typ: boolean)
+
+      console.log(321 <= 253); // => false (Typ: boolean)
+      console.log(321 >= 253); // => true (Typ: boolean)
+
+      console.log(7 <= 7); // => true (Typ: boolean)
+
+      console.log(5 === 9); // => false (Typ: boolean)
+      console.log(5 !== 9); // => true (Typ: boolean), ! NOT Operator (ungleich)
+
+      console.log('5' === 5); // => false (strict equality, typ: boolean)
+      console.log('5' == 5); // => true (equality, typ: boolean)
+
+      // -------- Strict equality (===) --------
+      console.log('-------- Strict equality (===) --------');
+      // Überprüft ob beide Operanten (operands) gleich sind in Inhalt und Datentyp
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality
+
+      console.log(1 === 1); // => true
+      console.log('1' === 1); // => false, weil der Datentyp anders ist
+
+      // -------- Equality (==) --------
+      console.log('-------- Equality (==) --------');
+      // Überprüft ob beide Operanten (operands) gleich sind, aber es wird nicht nach Datentyp verglichen
+      console.log(1 == 1); // => true
+      console.log('1' == 1); // => true
+    </script>
+  </body>
+</html>

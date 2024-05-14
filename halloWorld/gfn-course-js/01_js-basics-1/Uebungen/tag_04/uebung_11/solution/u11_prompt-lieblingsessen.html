@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 11: Mmmmmmmmm — mit prompt das Lieblingsessen erfragen</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary my-3">
+          <h1>Übung 11: Mmmmmmmmm — mit prompt das Lieblingsessen erfragen</h1>
+
+          <ol>
+            <li>
+              Frage den Benutzer nach seinem Lieblingsessen und seinem
+              Lieblingsgetränk und speichere beides in passend benannten
+              Variablen.
+            </li>
+            <li>
+              Verwende beide Variablen in einem Satz, den du über die Konsole
+              ausgibst. Verkette dabei die Variablen mithilfe des
+              Verkettungsoperators mit den restlichen Satzteilen.
+            </li>
+            <li>
+              Führe die letzte Übung noch einmal durch, aber verwende dieses Mal
+              Template String Substitutions.
+            </li>
+            <li>
+              Wenn du ganz fleißig bist, kannst du als dritte Variante noch
+              austesten, wie sich beide Varianten in der gleichen Ausgabe
+              verwenden lassen.
+            </li>
+          </ol>
+        </div>
+
+        <div class="alert alert-secondary my-3 output"></div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const favFood = prompt('Was ist dein Lieblingsessen?');
+      const favDrink = prompt('Was ist dein Lieblingsgetränk?');
+
+      const outputEl = document.querySelector('.output');
+
+      // Für Variante 1
+      console.log(
+        'Lieblingsspeise: ' + favFood + ' & Lieblingsgetränk: ' + favDrink
+      );
+
+      // Für Variante 2
+      console.log(
+        `Lieblingsspeise: ${favFood} & Lieblingsgetränk: ${favDrink}`
+      );
+
+      // Für Variante 3
+      console.log(
+        `Lieblingsspeise: ${favFood}` + ` & Lieblingsgetränk: ${favDrink}`
+      );
+
+      outputEl.textContent = `Lieblingsspeise: ${favFood} & Lieblingsgetränk: ${favDrink}`;
+    </script>
+  </body>
+</html>

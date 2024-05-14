@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Literale</title>
+  </head>
+  <body>
+    <h1>Literale</h1>
+
+    <p>
+      Grundsätzlich gilt, dass jeder Wert - egal ob String oder Zahl - der
+      direkt wörtlich (engl.: literally) im Code steht, als
+      <strong>Literal</strong> bezeichnet wird. Literale haben immer einen
+      festen Wert.
+    </p>
+
+    <h2>Beispiele für Literale</h2>
+
+    <ul>
+      <li>42</li>
+      <li>'Haus'</li>
+      <li>true</li>
+    </ul>
+
+    <script>
+      'use strict';
+
+      console.log(42); // => Literal
+      console.log('Haus'); // => Literal
+      console.log(true); // => Literal
+      console.log('Bitte geben Sie Ihren Namen ein'); // => Literal
+
+      console.log('======= KEINE LITERALE =======');
+      console.log(3 + 4); // => KEIN Literal, weil nicht 3 + 4 zurückgegeben wird, sondern => 7
+      console.log('hallo'.length); // => KEIN Literal, weil 'hallo'.length nicht zurückgegeben wird, sondern => 5
+    </script>
+  </body>
+</html>

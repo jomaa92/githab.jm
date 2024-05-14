@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if - Verzweigung</title>
+  </head>
+  <body>
+    <h1>if - Verzweigung</h1>
+
+    <code> if (Bedigung) { Rest vom Code } </code>
+
+    <script>
+      'use strict';
+
+      const DISCOUNT = 0.05;
+
+      const quantityOfCartItem = prompt('Quantity of the item?');
+      const pricePerItem = 20; // just to simulate the real price here
+      let totalPrice = quantityOfCartItem * pricePerItem;
+
+      if (quantityOfCartItem >= 3) {
+        totalPrice = totalPrice * (1 - DISCOUNT);
+      }
+
+      console.log(`total Price: ${totalPrice}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explizite Typkonvertierung</title>
+  </head>
+  <body>
+    <h1>Explizite Typkonvertierung</h1>
+
+    <script>
+      'use strict';
+
+      const number = 1;
+      console.log(number); // => 1
+
+      const number2 = new Number(10);
+      console.log(number2); // => Number {10}
+
+      console.log(number + number2); // => 11 -> 1 + 10
+
+      const price1 = prompt('Was ist der Preis von Produkt #1?');
+      console.log(price1); // => z.B. '10' (Typ: string)
+      console.log(Number(price1)); // => z.B. 10 (Typ: number)
+
+      console.log(Number('100')); // => 100 (Typ: number)
+      console.log(Number(3.14)); // => 3.14 (Typ: number)
+      console.log(Number('100A')); // => NaN (Typ: number)
+
+      // NaN: "Not-A-Number", ist eine Eigenschaft in JavaScript und hat den Datentyp "number"
+      console.log(NaN * 10); // => NaN (Typ: number)
+      console.log(NaN + '10'); // => 'NaN10' (Typ: string)
+    </script>
+  </body>
+</html>

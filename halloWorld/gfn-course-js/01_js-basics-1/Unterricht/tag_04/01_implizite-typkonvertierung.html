@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implizite Typkonvertierung</title>
+  </head>
+  <body>
+    <h1>Implizite Typkonvertierung</h1>
+
+    <script>
+      'use strict';
+
+      // Bei der impliziten Typkonvertierung, versucht JavaScript im Hintergrund die Variablen in einem anderen Datentyp umzuwandeln
+      // Nämlich in Rechenoperationen (außer +) wird die implizite Typkonvertierung aktiv
+
+      console.log('5' * 4); // => 20 (Typ: number)
+      console.log(typeof ('5' * 4)); // => number
+
+      console.log('5' * '4'); // => 20 (Typ: number)
+      console.log(Number('5') * Number('4')); // => 20, das passiert im Hintergrund
+
+      console.log('5' - 4); // => 1 (Typ: number)
+      console.log('10' - '5'); // => 5 (Typ: number)
+      console.log(5 - '4'); // => 1 (Typ: number)
+      console.log('10' / 2); // => 5 (Typ: number)
+      console.log('10' / '2'); // => 5 (Typ: number)
+      console.log(10 / '2'); // => 5 (Typ: number)
+
+      console.log('100€' - 50); // => NaN (Typ: number)
+      console.log('10ha' - 5); // => NaN (Typ: number)
+
+      // AUSNAMEFALL bei + (Verkettung)
+
+      // Zeichenverkettung, keine Typkonvertierung
+      console.log('5' + 4); // => '54'
+      console.log(typeof ('5' + 4)); // => string
+      console.log('5' + 4 + 1); // => '541' (Typ: string)
+      console.log(5 + '4'); // => '54' (Typ: string)
+
+      // prettier-ignore
+      console.log((5 + 5) + '4'); // => '104' (Typ: string)
+
+      console.log(5 + 4); // => 9 (Typ: number)
+      console.log(typeof 5 + 4); // => 'number4' (Typ: string) -> 'number' + 4 => 'number4'
+      console.log(typeof (5 + 4)); // => 'number' (Typ: string)
+
+      console.log(typeof 'hello' * 4); // => NaN (Typ: number)
+      console.log('string' * 4); // => NaN (Typ: number)
+    </script>
+  </body>
+</html>

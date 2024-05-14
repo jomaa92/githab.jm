@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>String - Methoden</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <main>
+      <div class="container py-5">
+        <h1>Die wichtigsten String-Methoden</h1>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      let vorname = 'Homer';
+      let hashtag = '#about';
+      let url = 'http://www.gfn.de';
+      let eingabe = 'ja ';
+      let text = 'I started to learn JS and I love it.';
+
+      // Die charAt()-Methode gibt das angegebene Zeichen eines Strings wieder.
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
+      console.log(vorname.charAt(2)); // => m
+      console.log(vorname[2]); // => m
+
+      // includes
+      // Die includes()-Methode gibt an, ob ein String innerhalb eines anderen Strings gefunden wird und gibt dabei true oder false wieder.
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+      console.log(vorname.includes('mer')); // => true
+      console.log(vorname.indexOf('mer') !== -1); // => true
+
+      // startsWith
+      // Die startsWith()-Methode stellt fest, ob ein String mit den Zeichen eines anderen Strings beginnt, falls dies so ist wird  true, sonst wird false zurückgegeben.
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
+      console.log(hashtag.startsWith('about', 1)); // => true
+      console.log(hashtag.startsWith('#')); // => true
+
+      // endsWith
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
+      console.log(url.endsWith('.de')); // => true
+      console.log('http://www.gfn.de'.endsWith('gfn', 14)); // => true
+
+      // indexOf
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
+      console.log(vorname.indexOf('o')); // => 1
+
+      // lastIndexOf
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
+      console.log(vorname.lastIndexOf('r')); // => 4
+      'canal'.lastIndexOf('a'); // => 3
+      'canal'.lastIndexOf('a', 2); // => 1, Position muss kleiner oder gleich 2 sein
+      'canal'.lastIndexOf('a', 0); // => -1, Position muss kleiner oder gleich 0 sein
+      'canal'.lastIndexOf('x'); // => -1
+
+      console.log('canal'.lastIndexOf('a', 0));
+
+      // repeat
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
+      console.log('Beetlejuice'.repeat(3)); // => 'BeetlejuiceBeetlejuiceBeetlejuice'
+      console.log('Beetlejuice'.repeat(1)); // => 'Beetlejuice'
+
+      // substr()
+      // str.substr(start[, length])
+      //https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/substr
+      console.log('Günther'.substr(4));
+      console.log('Günther'.substr(4, 2)); // => he
+      console.log('Günther'.substr(4, 0));
+      console.log(vorname.substr(0, 4)); // => Home
+      console.log(vorname.substr(3)); // => er
+      console.log(vorname.substr(-3)); // => mer -> str.length - 3
+
+      // substring()
+      // str.substring(indexA[, indexB])
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+      console.log(vorname.substring(1, 4)); // => ome
+      console.log('Günther'.substring(4, 6)); // => he
+      console.log(vorname.substring(-5)); // => Homer -> 0
+
+      // toLowerCase();
+      console.log(vorname.toLowerCase()); // => homer
+
+      // toUpperCase();
+      console.log(vorname.toUpperCase()); // => HOMER
+
+      // trim();
+      console.log(eingabe.trim()); // => 'ja'
+      console.log('   test     '.trim()); // => 'test'
+
+      // replace();
+      // str.replace(regexp|substr, newSubStr|function);
+      // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+      console.log(text.replace(/I/g, 'You')); // => 'You started to learn JS and You love it.';
+
+      // replaceAll(); - seit 2021
+      // str.replaceAll(regexp|substr, newSubStr|function);
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
+      console.log(text.replaceAll('I', 'You')); // => 'You started to learn JS and You love it.';
+
+      // padStart(); // kein IE support
+      // str.padStart(targetLength, padStrin);
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+      console.log('123'.padStart(7, '0')); // => 0000123
+    </script>
+  </body>
+</html>

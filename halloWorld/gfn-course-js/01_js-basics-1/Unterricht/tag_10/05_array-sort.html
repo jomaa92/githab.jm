@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.sort()</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.sort()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"
+        >array.sort()</a
+      >
+      - Die <strong>sort()</strong> Methode sortiert die Elemente eines Arrays
+      <code>in-place</code> und gibt das Array zurück. Standardmäßig werden alle
+      Elemente in Strings umgewandelt und dann anhand ihrer UTF-16 Codepoints
+      miteinander verglichen, sprich lexikographisch sortiert.
+    </p>
+
+    <div class="alert alert-warning">
+      Das angesprochene Array wird durch
+      <code>in-place-mutation</code> ebenfalls sortiert.
+    </div>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Methode sort() oder optional sort(compareFn)
+
+      const copyNames = [...names];
+
+      // Sortieren das Original Array
+      const sortedNames = names.sort();
+
+      console.log('sortedNames: ', sortedNames); // => ['Ariadne', 'Aurelia', 'Cassius', 'Cyrus', 'Darius', 'Esme', 'Felicity', 'Gideon', 'Lavinia', 'Leander', 'Maximilian', 'Persephone', 'Phoebe', 'Roman', 'Seraphina', 'Thaddeus', 'Valentina', 'Zephyr']
+      console.log('copyNames: ', copyNames); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr']
+
+      // ACHTUNG. Das angesprochene Array wird auch sortiert.
+      console.log('names Original Array: ', names); // => ['Ariadne', 'Aurelia', 'Cassius', 'Cyrus', 'Darius', 'Esme', 'Felicity', 'Gideon', 'Lavinia', 'Leander', 'Maximilian', 'Persephone', 'Phoebe', 'Roman', 'Seraphina', 'Thaddeus', 'Valentina', 'Zephyr']
+
+      // Es wird lexikographisch sortiert: Sonderzeichen < Zahlen < Großbuchstaben < Kleinbuchstaben
+      console.log(['j', 5, '$', 'B', 1, 'L', 'z', '!'].sort()); // => ['!', '$', 1, 5, 'B', 'L', 'j', 'z']
+    </script>
+  </body>
+</html>

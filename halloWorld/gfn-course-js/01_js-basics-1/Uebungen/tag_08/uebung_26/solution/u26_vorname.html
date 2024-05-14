@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 26: Wenn ein Vorname nicht reicht …</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 26: Wenn ein Vorname nicht reicht …</h1>
+          <p>
+            Vielleicht ist dir aufgefallen, dass die Zerlegung nur richtig
+            funktioniert, wenn der Name in der Form
+            <code>'Vorname Nachname'</code> vorliegt.
+          </p>
+
+          <p>
+            Sollte ein Nutzer einen zweiten Vornamen angeben, ordnet das
+            Programm den zweiten Vorname dem Nachnamen zu. Du würdest für den
+            Namen <em>Ladislaus Coolio Jones</em> fälschlicherweise Folgendes
+            erhalten:
+          </p>
+
+          <p>
+            <code>const firstName = 'Ladislaus'</code>
+            <br />
+            <code> const lastName = 'Coolio Jones'</code>
+          </p>
+
+          <p>
+            Korrigiere die Ausgabe des folgenden Codes mithilfe von
+            <code>lastIndexOf</code>
+          </p>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const name = 'Ladislaus Coolio Jones';
+      const spacePosition = name.lastIndexOf(' ');
+      const firstName = name.substr(0, spacePosition);
+      const lastName = name.substr(spacePosition + 1);
+
+      console.log(firstName);
+      console.log(lastName);
+    </script>
+  </body>
+</html>

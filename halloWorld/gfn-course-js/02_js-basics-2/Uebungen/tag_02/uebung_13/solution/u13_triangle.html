@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 13: Dreieckig soll es sein…</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- <script src="libs/helpers.js"></script> -->
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 13: Dreieckig soll es sein…</h1>
+
+          <p>
+            Da Sie gerade so schön am Bauen sind: Wie wäre es denn mal mit einem
+            Dreieck?
+          </p>
+          <img
+            src="https://de.webmasters-europe.org/system/course_management/file/images/files/000/020/565/160-337/e2d2c37804befcb1c43465b3a7804633.jpg?1644493809"
+            alt="Sternchendreieck"
+          />
+          <p>
+            Ob von oben nach unten oder unten nach oben, bleibt Ihnen
+            überlassen. Falls Sie beide Fälle entwickeln, dürfen Sie sich ein
+            Fleißsternchen in Ihr Hausaufgabenheft malen :)
+          </p>
+          <p>
+            Die Funktion <code>triangle</code> sollte nur einen Parameter haben,
+            der sowohl Höhe als auch Breite des Dreiecks bestimmt. So sollte
+            beispielsweise <code>triangle(10)</code> ein Dreieck mit einer Höhe
+            und Breite von 10 Zeichen erzeugen.
+          </p>
+          <p>
+            <strong>Tipp:</strong> Auch hier dient die Linie wieder als Basis.
+          </p>
+        </div>
+
+        <form method="post" class="form-triangle">
+          <div class="row mb-3">
+            <label for="input-size" class="col-sm-2 col-form-label">Size</label>
+            <div class="col-12 col-md-3">
+              <input
+                type="number"
+                class="form-control"
+                id="input-size"
+                name="size"
+              />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="input-char" class="col-sm-2 col-form-label"
+              >Character</label
+            >
+            <div class="col-12 col-md-3">
+              <input
+                type="text"
+                class="form-control"
+                id="input-char"
+                name="char"
+              />
+            </div>
+          </div>
+
+          <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">Direction</legend>
+
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="direction"
+                  id="radio-up"
+                  value="up"
+                  checked
+                />
+                <label class="form-check-label" for="radio-upn"> Up </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="direction"
+                  id="radio-down"
+                  value="down"
+                />
+                <label class="form-check-label" for="radio-down"> Down </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary mb-5">
+            Draw Triangle
+          </button>
+        </form>
+
+        <div class="output alert alert-secondary"></div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const formEl = document.querySelector('.form-triangle');
+      const sizeInput = formEl.querySelector('input[name="size"]');
+      const charInput = formEl.querySelector('input[name="char"]');
+
+      const outputEl = document.querySelector('.output');
+
+      // =================== FUNCTIONS ===================
+      const line = (length, character) => {
+        if (length === 0) return '';
+        return line(length - 1, character) + character;
+      };
+
+      const triangle = (size, char, isUpsideDown) => {
+        let triangleStr = '';
+
+        if (isUpsideDown) {
+          for (let x = size; x > 0; x--) {
+            triangleStr += line(x, char) + '\n';
+          }
+        } else {
+          for (let x = 1; x <= size; x++) {
+            triangleStr += line(x, char) + '\n';
+          }
+        }
+
+        return triangleStr;
+      };
+
+      formEl.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const size = isNaN(sizeInput.value) ? null : Number(sizeInput.value);
+        const char = charInput.value.trim();
+
+        const directionRadio = formEl.querySelector(
+          'input[name="direction"]:checked'
+        );
+        const isUpsideDown = directionRadio.value === 'down' ? true : false;
+
+        // Guard
+        if (!size || !char) {
+          return alert('Please enter a valid number and character!');
+        }
+
+        outputEl.innerHTML = triangle(size, char, isUpsideDown).replaceAll(
+          '\n',
+          '<br>'
+        );
+      });
+
+      console.log(triangle(10, '*'));
+      console.log(triangle(10, '*', true));
+    </script>
+  </body>
+</html>

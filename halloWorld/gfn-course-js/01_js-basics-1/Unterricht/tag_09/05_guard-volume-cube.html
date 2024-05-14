@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Guard (Wächter) in Funktionen - Beispiel Zylindervolumen (tube)
+    </title>
+  </head>
+  <body>
+    <h1>Guard (Wächter) in Funktionen - Beispiel Zylindervolumen (tube)</h1>
+
+    <script>
+      'use strict';
+
+      const BASE_COST_PER_UNIT = 0.7; // Der Spediteur stellt  0,70€ pro Einheit in Rechnung.
+      const COST_PER_CC = 0.001; // Der Spediteur stellt 0,001€ pro cm³ in Rechnung.
+
+      const height = 80;
+      const diameter = 10;
+
+      // Funktion zum Berechnen des Zylinder-Volumes
+      const calcTubeVolume = (diameter, height) => {
+        // Guard (z.B. Werte sind nicht leer oder negativ oder haben den richtigen Datentyp)
+        if (isNaN(diameter) || isNaN(height) || diameter < 0 || height < 0) {
+          console.error('Fehler: Die Parameter stimmen nicht');
+          return NaN;
+        }
+
+        // Cylindircal Volume = π * radius² * height
+        const radius = diameter / 2;
+        const volume = Math.PI * Math.pow(radius, 2) * height;
+        return volume;
+      };
+
+      const calcShippingCost = (volume) => {
+        // Guard
+        if (isNaN(volume) || volume < 0) {
+          console.error('Fehler: Das Volumen stimmt nicht');
+          return NaN;
+        }
+
+        const cost = volume * COST_PER_CC * BASE_COST_PER_UNIT;
+        return cost;
+      };
+
+      // =========== Funktionsaufruf ===========
+      const volumeTube = calcTubeVolume(diameter, height);
+      console.log(volumeTube); // => 6283.185307179587
+
+      const shippingCost = calcShippingCost(volumeTube);
+      console.log(shippingCost); // => 4.39822971502571
+
+      console.log(`Die Versandkosten betragen: ${shippingCost.toFixed(2)}€`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datentyp - String in JavaScript</title>
+  </head>
+  <body>
+    <h1>Datentyp - String in JavaScript</h1>
+
+    <script>
+      'use strict';
+
+      // Strings: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+      const firstName = 'John'; // Mit ' '
+      // prettier-ignore
+      const lastName = "Wick"; // Mit " "
+
+      const fullName = firstName + ' ' + lastName;
+      console.log(fullName);
+
+      // Seit ES6 (ECMAScript 2015) exisitert die Template literals - Backtick Schreibweise
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+      // Ohne Backticks
+      console.log(
+        "Hallo! Wie geht's dir " + fullName + '? Was macht der Hund?'
+      );
+
+      // Mit Backticks können wir JavaScript Variablen in Strings einfügen
+      console.log(`Hallo! Wie geht's dir ${fullName}? Was macht der Hund?`);
+
+      const message = "'Chrome ist ein toller Browser', sagt Google";
+      const message2 = '"Chrome ist ein toller Browser", sagt Google';
+      console.log(message);
+      console.log(message2);
+
+      // '\' Escape Notation, damit man auf das Standard Symbol zugreift oder auf Sonderzeichen
+      // '\n' erstellt einen Zeilenumbruch in einem String
+      const gfnLink = '<a href="https://www.gfn.de">GFN\'s \nSeite</a>';
+      console.log(gfnLink);
+    </script>
+  </body>
+</html>

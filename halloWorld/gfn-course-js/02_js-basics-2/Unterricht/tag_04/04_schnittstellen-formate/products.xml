@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<![CDATA[Daten werden hier nicht interpretiert]]>
+
+<products group="nerdshop">
+  <product>
+    <name>Klingon Letter Opener</name>
+    <categories>
+      <category>Office Warfare</category>
+      <category>StarTrek</category>
+    </categories>
+    <availableSince>2007</availableSince>
+  </product>
+
+  <product>
+    <name>3Doodler 3D Printing Pen</name>
+    <categories>
+      <category>Office Warfare</category>
+      <category>StarTrek</category>
+    </categories>
+    <availableSince>2007</availableSince>
+  </product>
+  
+  <product>
+    <name>8-Bit Heat-Change Mug</name>
+    <categories>
+      <category>Office Warfare</category>
+      <category>StarTrek</category>
+    </categories>
+    <availableSince>2007</availableSince>
+  </product>
+</products>

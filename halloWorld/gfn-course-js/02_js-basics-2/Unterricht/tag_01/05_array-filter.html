@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.filter()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.filter()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
+        >array.filter()</a
+      >
+      - <strong>filter()</strong> erstellt ein neues Array mit allen Elementen,
+      die den von der bereitgestellten Funktion implementierten Test bestehen.
+      (<code>side-effect-free</code>)
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina (Admin)',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus (Admin)',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon (Admin)',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman (Admin)',
+        'Valentina (Admin)',
+        'Zephyr',
+      ];
+
+      // Array Methode filter(callbackFunction(currentValue, index?, array?))
+
+      const admins = names.filter((name) => {
+        return name.endsWith('(Admin)');
+      });
+
+      console.log(admins); // => ['Seraphina (Admin)', 'Cyrus (Admin)', 'Gideon (Admin)', 'Roman (Admin)', 'Valentina (Admin)']
+
+      console.log(names.filter(() => {})); // => []
+
+      const products = [
+        'Game of Thrones Wax Seal Coasters',
+        'Electronic Butterfly in a Jar',
+        'Aquafarm: Aquaponics Fish Garden',
+        'Cassette Adapter Bluetooth',
+        'Marvel Comics Lightweight Infinity Scarf',
+        'Ollie - The App Controlled Robot',
+        'Sound Splash Bluetooth Waterproof Shower Speaker',
+        'PowerCube',
+        'Backpack of Holding',
+        'Retro Duo Portable NES/SNES Game System',
+        'Universal Gadget Wrist Charger',
+        'USB Squirming Tentacle',
+        'USB Fishquarium',
+        'Space Bar Keyboard Organizer & USB Hub Pop',
+        'USB Pet Rock',
+        'Powerstation 5- E. Maximus Chargus',
+        'Dual Heated Travel Mug',
+        'Crosley Collegiate Portable USB Turntable',
+        'Meh Hoodie',
+        'Magnetic Accelerator Cannon',
+      ];
+
+      const getProductsByLetter = (letter, products) => {
+        return products.filter((product) => {
+          const firstProductLetter = product[0].toUpperCase();
+          const letterToCompare = letter.toUpperCase();
+
+          return firstProductLetter === letterToCompare;
+
+          // return product.toUpperCase().startsWith(letter.toUpperCase()); // Alternative #1
+          // return product.charAt(0).toUpperCase() === letter.toUpperCase(); // Alternative #2
+        });
+      };
+
+      console.log(getProductsByLetter('M', products)); // => ['Marvel Comics Lightweight Infinity Scarf', 'Meh Hoodie', 'Magnetic Accelerator Cannon']
+
+      console.log(getProductsByLetter('m', products)); // => ['Marvel Comics Lightweight Infinity Scarf', 'Meh Hoodie', 'Magnetic Accelerator Cannon']
+    </script>
+  </body>
+</html>

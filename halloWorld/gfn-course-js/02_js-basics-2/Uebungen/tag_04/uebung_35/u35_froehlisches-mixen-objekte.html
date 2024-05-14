@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 35: Fröhliches Mixen mit JSON</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 35: Fröhliches Mixen mit JSON</h1>
+          <p>
+            Dieses Mal haben Sie eine Liste von Cocktails im Internet gefunden —
+            praktischerweise auch noch im JSON-Format! Finden Sie heraus, welche
+            der Cocktails Sie mit Ihrer Hausbar mixen können.
+          </p>
+          <p>
+            Geben Sie dieses Mal die Namen (aber nicht die Zutaten) aller
+            Cocktails aus, die Sie mixen können.
+          </p>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const ingredientsFromMyBar = [
+        'Pineapple',
+        'Maracuja Juice',
+        'Grapefruit Juice',
+        'Crushed Ice',
+        'Milch',
+        'Vodka',
+        'Apple Juice',
+        'Aperol',
+        'Pineapple Juice',
+        'Lime Juice',
+        'Lemons',
+        'Cucumber',
+        'Kaffeelikör',
+      ];
+
+      const cocktailRecipesWithNames = {
+        'Honolulu Flip': [
+          'Maracuja Juice',
+          'Pineapple Juice',
+          'Lemon Juice',
+          'Grapefruit Juice',
+          'Crushed Ice',
+        ],
+        'Casual Friday': ['Vodka', 'Lime Juice', 'Apple Juice', 'Cucumber'],
+        'Pink Dolly': [
+          'Vodka',
+          'Orange Juice',
+          'Pineapple Juice',
+          'Grenadine',
+          'Cream',
+          'coco syrup',
+        ],
+        'Black Russian': ['Vodka', 'Kaffeelikör'],
+        'White Russian': ['Vodka', 'Kaffeelikör', 'Cream'],
+      };
+
+      const myMixableCocktails = (cocktailList) => {
+        let mixableCocktails = [];
+
+        const allRecipes = Object.entries(cocktailRecipesWithNames);
+
+        allRecipes.forEach((recipe) => {
+          const hasAllIngredients = recipe[1].every((ingredient) =>
+            // CODE
+          );
+
+          if (hasAllIngredients) return mixableCocktails.push(recipe[0]);
+        });
+
+        return mixableCocktails;
+      };
+
+      console.log(myMixableCocktails(cocktailRecipesWithNames)); // => [ 'Casual Friday', 'Black Russian' ]
+    </script>
+  </body>
+</html>

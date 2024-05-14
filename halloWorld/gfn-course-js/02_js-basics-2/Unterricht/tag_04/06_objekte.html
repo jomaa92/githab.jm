@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Einführung in Objekte</title>
+  </head>
+  <body>
+    <h1>Einführung in Objekte</h1>
+
+    <p>In JavaScript sind fast alle Sachen im Hintergrund Objekte.</p>
+
+    <script>
+      'use strict';
+
+      const leeresObjekt = {}; // {}-Klammern initialisert Objekte
+
+      const string = 'Hallo';
+      console.log(string); // => 'Hallo'
+      console.log(typeof string); // => 'string'
+
+      const string2 = new String('Hallo');
+      console.log(string2); // => String {'Hallo'}
+      console.log(typeof string2); // => 'object' - Objekt von Typ String
+
+      const array = [];
+      console.log(typeof array); // => 'object' - Objekt von Typ Array
+
+      const array2 = new Array();
+      console.log(array2); // => []
+      console.log(typeof array2); // => 'object' - Objekt von Typ Array
+
+      const zahl = 0;
+      console.log(zahl.toFixed(2)); // => 0.00; im Hintergrund wird "new Number(0)" aufgerufen
+      const zahl2 = new Number(0);
+
+      console.log(zahl); // => 0
+      console.log(zahl2); // => Number {0}
+      console.log(typeof zahl); // => 'number'
+      console.log(typeof zahl2); // => 'object' - Objekt von Typ Number
+    </script>
+  </body>
+</html>

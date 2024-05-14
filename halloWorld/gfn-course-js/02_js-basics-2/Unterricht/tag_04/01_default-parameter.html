@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Defaultparameter in Funktionen</title>
+  </head>
+  <body>
+    <h1>Defaultparameter in Funktionen</h1>
+
+    <script>
+      'use strict';
+
+      // Funktion OHNE Defaultparameter (Standardwerte)
+      const calculateTubeVolume = (radius, height) => {
+        // Volumen eines Zylinders: π * radius² * height
+        return Math.PI * radius ** 2 * height;
+      };
+
+      console.log(calculateTubeVolume(10, 30)); // => 9424.77796076938
+      console.log(calculateTubeVolume()); // => NaN
+
+      // Funktion MIT Defaultparameter (Standardwerte)
+      const calculateTubeVolumeWithDefault = (radius = 10, height = 15) => {
+        return Math.PI * radius ** 2 * height;
+      };
+
+      console.log(calculateTubeVolumeWithDefault(10, 30)); // => 9424.77796076938
+      console.log(calculateTubeVolumeWithDefault()); // => 4712.38898038469
+      console.log(calculateTubeVolumeWithDefault(5, 10, 20)); // => 785.3981633974483
+
+      // Funktion mit Fehlermeldung bei zu vielen Argumenten/Parameter
+      const tubeVolumeErorr = (radius = 10, height = 15, value) => {
+        if (value) {
+          return console.error('You passed too many arguments');
+        }
+
+        return Math.PI * radius ** 2 * height;
+      };
+
+      console.log(tubeVolumeErorr(10, 30)); // => 9424.77796076938
+      console.log(tubeVolumeErorr()); // => 4712.38898038469
+      // console.log(tubeVolumeErorr(5, 10, 20)); // => Error: You passed too many arguments
+      // console.log(tubeVolumeErorr(5, 10, 20, 23, 40, 50)); // => Error: You passed too many arguments
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.reverse()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.reverse()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
+        >array.reverse()</a
+      >
+      - Die <strong>reverse()</strong> Methode kehrt die Reihenfolge der
+      Arrayelemente <code>in-place</code> um. Das erste Element wird zum letzen
+      und das Letzte wird zum ersten.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Methode rerverse()
+
+      // Array Kopie erschaffen
+      const namesCopy = names.slice();
+
+      // Mit reverse() die Reihenfolge umgekehrt
+      const reversedNames = namesCopy.reverse();
+      console.log(reversedNames); // => ['Zephyr', 'Valentina', 'Roman', 'Phoebe', 'Maximilian', 'Persephone', 'Leander', 'Esme', 'Gideon', 'Felicity', 'Darius', 'Ariadne', 'Cyrus', 'Lavinia', 'Thaddeus', 'Seraphina', 'Cassius', 'Aurelia']
+
+      // Das Original-Array bleibt unverändert
+      console.log(names);
+
+      // Hier reversen wir das reversed Array, also gelangt es in die Ursprungsreihenfolge zurück
+      reversedNames.reverse();
+
+      console.log(reversedNames); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr']
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deklarativer Stil vs. imperativer Stil</title>
+  </head>
+  <body>
+    <h1>Deklarativer Stil vs. imperativer Stil</h1>
+
+    <p>
+      Deklarative Programmierung ist ein Programmierparadigma, bei dem der
+      Programmierer beschreibt, <strong>was</strong> das Programm tun soll,
+      anstatt zu beschreiben, wie es das tun soll. Ein Beispiel für deklarative
+      Programmierung ist die Verwendung von Array-Methoden wie
+      <code>filter</code> und <code>map</code>.
+    </p>
+
+    <p>
+      Imperative Programmierung ist ein Programmierparadigma, bei dem der
+      Programmierer beschreibt,
+      <strong>wie</strong> das Programm eine Aufgabe erledigen soll. Ein
+      Beispiel für imperatives Programmieren ist die Verwendung von Schleifen
+      wie <code>for</code> und <code>while</code>.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = ['Tick', 'Trick', 'Track'];
+
+      // ======= Deklarativ (was ...) =======
+      names.forEach((name, index) => {
+        console.log(`index: ${index} name: ${name}`);
+      });
+
+      // ======= Imperativ (wie ...) =======
+      for (let i = 0; i < names.length; i++) {
+        console.log(`index: ${i} name: ${names[i]}`);
+      }
+    </script>
+  </body>
+</html>

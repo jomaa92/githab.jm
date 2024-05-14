@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formvalidierung</title>
+  </head>
+  <body>
+    <h1>Formvalidierung</h1>
+
+    <script>
+      'use strict';
+
+      // Beispiel Form Daten
+      const USERNAME = 'CodingMaster42';
+      const EMAIL = 'coding@master.com';
+      const PASSWORD = 'TopSecret123!';
+      const PASSWORD_CONFIRMATION = 'TopSecret123!s';
+
+      // Beispiel Daten für User, die schon registriert sind
+      const user = [
+        'Webmaster1', // username
+        '123JS456', // password
+        'mastercoder@js.com', // email
+      ];
+
+      const validateForm = (username, password, email, emailConfirmation) => {};
+
+      console.log(validateForm(USERNAME, PASSWORD, EMAIL, EMAIL_CONFIRMATION));
+    </script>
+  </body>
+</html>

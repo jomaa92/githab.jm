@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 28: Der transformierte Ladislaus</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary my-3">
+          <h1>Übung 28: Der transformierte Ladislaus</h1>
+          <p>Und weil es so viel Freude macht:</p>
+          <p>
+            Speichern Sie den Namen »Ladislaus Jones« in einer Variable und
+            kreieren Sie eine Ausgabe nach dem Schema
+            '<code>&lt;Nachname&gt;</code>,
+            <code>&lt;Anfangsbuchstabe des Vornamens&gt;</code>.', also
+            <code>'Jones, L.'</code>.
+          </p>
+        </div>
+
+        <div class="alert alert-secondary">
+          <div class="output"></div>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const outputEl = document.querySelector('.output');
+      const name = ' Ladislaus Jones';
+      const splitNames = name.trim().split(' ');
+
+      const firstName = splitNames[0];
+      const firstNameFirstChar = firstName[0].toUpperCase();
+      const lastName = splitNames[splitNames.length - 1];
+
+      const text = `${lastName}, ${firstNameFirstChar}.`;
+
+      outputEl.textContent = text;
+    </script>
+  </body>
+</html>

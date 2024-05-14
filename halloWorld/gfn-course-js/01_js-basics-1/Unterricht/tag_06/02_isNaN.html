@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isNaN()</title>
+  </head>
+  <body>
+    <h1>isNaN()</h1>
+
+    <p>
+      Die <code>isNaN()</code> Methode prüft, ob ein Wert NaN ist. Bemerkung:
+      Aufgrund innerer Zwänge weist die isNaN Methode interessante Regeln auf.
+      Alternativ kann die in ECMAScript 2015 definierte Methode
+      <code>Number.isNaN()</code> genutzt werden.
+    </p>
+
+    <a
+      href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/isNaN"
+      >isNaN()</a
+    >
+
+    <script>
+      'use strict';
+
+      console.log(isNaN(3)); // => false -> Number(3) => 3
+      console.log(Number(3)); // => 3, also KEIN NaN
+
+      console.log(Number('Hallo')); // => NaN
+      console.log(isNaN('Hallo')); // => true -> Number('Hallo') => NaN
+
+      console.log(Number('17.7')); // => 17.7
+      console.log(isNaN('17.7')); // => false -> Number('17.7') => 17.7
+
+      console.log(isNaN('3Autos')); // => true -> Number('3Autos') => NaN
+
+      console.log(!isNaN(3)); // true -> Gegenteil von isNaN(3)
+    </script>
+  </body>
+</html>

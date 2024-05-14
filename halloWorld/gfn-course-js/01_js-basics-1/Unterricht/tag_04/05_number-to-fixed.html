@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number.toFixed()</title>
+  </head>
+  <body>
+    <h1>Number.toFixed()</h1>
+
+    <p>
+      Die <code>toFixed()</code> Methode formatiert eine Zahl in
+      Festkommadarstellung.
+    </p>
+
+    <p>
+      <strong>ACHTUNG:</strong> Der Rückgabewert ist ein String. Das heißt, eine
+      Zahl wird mit <code>toFixed()</code> in einem String umgewandelt.
+    </p>
+
+    <script>
+      'use strict';
+
+      const zahl = 5.48642; // Typ: number
+
+      console.log(zahl.toFixed(3)); // => '5.486' (Typ: string)
+      console.log(typeof zahl.toFixed(3)); // => 'string' (Typ: string)
+
+      const zahlOhneKomma = 9;
+      console.log(zahlOhneKomma.toFixed(4)); // => '9.0000' (Typ: string)
+      console.log(typeof zahlOhneKomma.toFixed(4)); // => 'string' (Typ: string)
+    </script>
+  </body>
+</html>

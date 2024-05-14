@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 24: Von guten und bösen Eingaben</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 24: Von guten und bösen Eingaben</h1>
+          <ol class="list">
+            <li>
+              Nimm Angaben zu Vorname, Nachname, Geschlecht und Alter eines
+              Anwenders entgegen und speichere diese in Variablen.
+            </li>
+            <li>
+              Diese Eingaben sollst du nun folgendermaßen validieren:
+              <ul class="list">
+                <li>
+                  Vorname und Nachname müssen zwischen 2 und 100 Zeichen lang
+                  sein.
+                </li>
+                <li>
+                  Die Eingabe für das Geschlecht muss m (male) oder ein f
+                  (female) sein.
+                </li>
+                <li>Das Alter muss eine Zahl unter 150 sein.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <form method="post" class="form-user-details">
+          <div class="row">
+            <div class="mb-3 col-md-6">
+              <label for="input-firstname" class="mb-2">First name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="input-firstname"
+                name="firstName"
+                placeholder="First name"
+              />
+              <div class="invalid-feedback">
+                First name must be between 2-100 characters long.
+              </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+              <label for="input-lastname" class="mb-2">Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="lastName"
+                id="input-lastname"
+                placeholder="Last name"
+              />
+              <div class="invalid-feedback">
+                Last name must be between 2-100 characters long.
+              </div>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend aria-label="Gender">Gender</legend>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="radio-male"
+                  class="form-check-input"
+                  name="gender"
+                  value="Male"
+                  checked
+                />
+                <label class="form-check-label" for="radio-male">Male</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="radio-female"
+                  class="form-check-input"
+                  name="gender"
+                  value="Female"
+                />
+                <label class="form-check-label" for="radio-female"
+                  >Female</label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="radio-diverse"
+                  class="form-check-input"
+                  name="gender"
+                  value="Diverse"
+                />
+                <label class="form-check-label" for="radio-diverse"
+                  >Diverse</label
+                >
+              </div>
+            </div>
+          </fieldset>
+          <div class="form-group col-md-6 mb-3">
+            <label for="input-age" class="mb-2">Age</label>
+            <input
+              type="number"
+              class="form-control"
+              id="input-age"
+              name="age"
+              value="18"
+            />
+            <div class="invalid-feedback">
+              Age cannot fall below 0 or exceed 150 years.
+            </div>
+            <div class="valid-feedback">ok.</div>
+          </div>
+
+          <div class="my-4">
+            <button type="submit" class="btn btn-dark">Senden</button>
+          </div>
+        </form>
+
+        <div class="output alert alert-secondary d-none"></div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const formEl = document.querySelector('.form-user-details');
+      const firstNameEl = formEl.querySelector('input[name="firstName"]');
+      const lastNameEl = formEl.querySelector('input[name="lastName"]');
+      const ageEl = formEl.querySelector('input[name="age"]');
+
+      const outputEl = document.querySelector('.output');
+
+      firstNameEl.addEventListener('input', (e) => {
+        const name = firstNameEl.value;
+        validateName(name, firstNameEl);
+      });
+
+      lastNameEl.addEventListener('input', (e) => {
+        const name = lastNameEl.value;
+        validateName(name, lastNameEl);
+      });
+
+      ageEl.addEventListener('input', (e) => {
+        const age = Number(ageEl.value);
+        validateAge(age);
+      });
+
+      formEl.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const firstName = firstNameEl.value;
+        const lastName = lastNameEl.value;
+        const gender = document.querySelector(
+          "input[name='gender']:checked"
+        ).value;
+        const age = Number(ageEl.value);
+
+        const ageIsValid = validateAge(age);
+        const firstNameIsValid = validateName(firstName, firstNameEl);
+        const lastNameIsValid = validateName(lastName, lastNameEl);
+
+        if (ageIsValid && firstNameIsValid && lastNameIsValid) {
+          const htmlElement = `<p class='m-0'>Full Name: ${firstName} ${lastName}</p> <p class='m-0'>Gender: ${gender}</p> <p class='m-0'>Age: ${age}</p>`;
+          outputEl.classList.remove('d-none');
+          outputEl.innerHTML = htmlElement;
+        }
+      });
+
+      // Helper Functions
+      function validateName(name, element) {
+        if (name.length < 2 || name.length > 100) {
+          element.classList.add('is-invalid');
+          return false;
+        } else {
+          element.classList.remove('is-invalid');
+          return true;
+        }
+      }
+
+      function validateAge(age) {
+        if (isNaN(age) || age > 150 || age < 0) {
+          ageEl.classList.add('is-invalid');
+          return false;
+        } else {
+          ageEl.classList.remove('is-invalid');
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>

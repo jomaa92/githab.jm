@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 34: In die Konsole geloggt, Teil 2</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <h1>Übung 34: In die Konsole geloggt, Teil 2</h1>
+        <p>
+          Schreiben Sie eine Funktion, die Ihren Namen in der Konsole ausgibt.
+        </p>
+
+        <form method="post" class="form-name-logger">
+          <div class="col-md-4">
+            <label for="input-name" class="mb-2">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="input-name"
+              class="form-control"
+              placeholder="Enter your name here"
+            />
+          </div>
+
+          <div class="my-3">
+            <button type="submit" class="btn btn-dark">Einloggen</button>
+          </div>
+        </form>
+
+        <div class="alert alert-secondary output"></div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const formEl = document.querySelector('.form-name-logger');
+      const nameEl = formEl.querySelector("input[name='name']");
+
+      const outputEl = document.querySelector('.output');
+
+      const printName = () => {
+        const name = nameEl.value.trim();
+
+        console.log(name);
+        outputEl.textContent = name;
+      };
+
+      formEl.addEventListener('submit', (e) => {
+        e.preventDefault();
+        printName();
+      });
+    </script>
+  </body>
+</html>

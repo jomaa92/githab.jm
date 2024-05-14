@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.charAt()</title>
+  </head>
+  <body>
+    <h1>String.charAt()</h1>
+
+    <a
+      href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/charAt"
+      >String.charAt()</a
+    >
+
+    <p>
+      Die <strong>charAt()</strong>-Methode gibt das Zeichen an einer bestimmten
+      Stelle eines Strings wieder.
+    </p>
+
+    <script>
+      'use strict';
+
+      const firstName = 'Ladislaus';
+      const lastName = 'Jones';
+
+      // String - Methode/Funktion => charAt()
+
+      console.log(`${lastName}, ${firstName.charAt(0)}.`); // => 'Jones, L.'
+      console.log(`${lastName}, ${firstName[0]}.`); // => 'Jones, L.'
+
+      // Wenn kein Argument/Parameter angegeben wird, wird von 0 ausgegangen, also charAt(0)
+      console.log('lorem ipsum'.charAt()); // => 'l'
+
+      console.log('lorem ipsum'.charAt(999)); // => ''
+      console.log('lorem ipsum'.charAt(-999)); // => ''
+
+      // Ein Zeichen kann auch über den Index-Operator ([]-Klammern) ausgelesen werden
+      console.log('lorem ipsum'[6]); // => 'i'
+      console.log('lorem ipsum'[1]); // => 'o'
+    </script>
+  </body>
+</html>

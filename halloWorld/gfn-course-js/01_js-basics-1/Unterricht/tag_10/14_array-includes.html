@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.includes()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.includes()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes"
+        >array.includes()</a
+      >
+      - Die <strong>includes()</strong> Methode prüft, ob ein Array ein
+      bestimmtes Element enthält, und gibt entsprechend <code>true</code> oder
+      <code>false</code> aus. Es wird der selbe sameValueZero-Algorithmus
+      benutzt, um ein gegebenes Element zu finden..
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Methode includes(searchElement)
+
+      console.log(names.includes('Esme')); // => true
+      console.log(names.includes('Valentina')); // => true
+
+      console.log(names.includes('Max')); // => false
+      console.log(names.includes('Luna')); // => false
+    </script>
+  </body>
+</html>

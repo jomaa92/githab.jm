@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Length</title>
+  </head>
+  <body>
+    <h1>String Length</h1>
+
+    <script>
+      'use strict';
+
+      const city = 'New York';
+
+      console.log(city);
+
+      // Eigenschaft: .length
+      // Mit einem Punkt (.) greifen wir auf Eigenschaften und Funktionen zu
+      console.log(city.length); // => 8, Leerzeichen zählen mit
+      console.log('Los Angeles'.length); // => 11
+
+      // PHP - strlen(city) // => 8
+
+      // Beispiel einer Funktion: toUpperCase()
+      console.log('hamburg'.toUpperCase()); // => 'HAMBURG'
+
+      const city2 = 'istanbul';
+
+      // Mit toLocaleUpperCase() können wir an andere Sprachen die Methode anpassen
+      console.log(city2.toLocaleUpperCase('de')); // => 'ISTANBUL'
+      console.log(city2.toLocaleUpperCase('TR')); // => 'İSTANBUL'
+
+      // PHP - strtoupper('hamburg') // => 'HAMBURG'
+    </script>
+  </body>
+</html>

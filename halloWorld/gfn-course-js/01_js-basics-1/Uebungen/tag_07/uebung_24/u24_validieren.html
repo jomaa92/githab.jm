@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 24: Von guten und bösen Eingaben</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 24: Von guten und bösen Eingaben</h1>
+          <ol class="list">
+            <li>
+              Nimm Angaben zu Vorname, Nachname, Geschlecht und Alter eines
+              Anwenders entgegen und speichere diese in Variablen.
+            </li>
+            <li>
+              Diese Eingaben sollst du nun folgendermaßen validieren:
+              <ul class="list">
+                <li>
+                  Vorname und Nachname müssen zwischen 2 und 100 Zeichen lang
+                  sein.
+                </li>
+                <li>
+                  Die Eingabe für das Geschlecht muss m (male) oder ein f
+                  (female) sein.
+                </li>
+                <li>Das Alter muss eine Zahl unter 150 sein.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const name = prompt("What's your name?");
+      const firstName = prompt("What's your first name?");
+      const gender = prompt('Are you a lord (m) or lady (f)?');
+      const age = prompt('How old are you?');
+
+      let errorMessage = '';
+
+      if (name.length < 2 || name.length > 100) {
+        errorMessage += 'name ';
+      }
+
+      if (firstName.length < 2 || firstName.length > 100) {
+        errorMessage += 'first name ';
+      }
+
+      if (gender !== 'f' && gender !== 'm') {
+        errorMessage += 'gender ';
+      }
+
+      if (isNaN(age) || age >= 150) {
+        errorMessage += 'age ';
+      }
+
+      if (errorMessage === '') {
+        console.log('OK!');
+      } else {
+        console.log(`KO! The following entries are invalid: ${errorMessage}`);
+      }
+    </script>
+  </body>
+</html>

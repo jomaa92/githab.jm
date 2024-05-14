@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.trim()</title>
+  </head>
+  <body>
+    <h1>String.trim()</h1>
+
+    <a
+      href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/trim"
+      >String.trim()</a
+    >
+
+    <p>
+      Die <strong>trim()</strong> Methode entfernt Leerzeichen an beiden Enden
+      einer Zeichenfolge. Das betrifft Leerzeichen verschiedenster Art (space,
+      tab, no-break space, etc.) und alle Zeilenumbruch einleitende Zeichen (LF,
+      CR, etc.).
+    </p>
+
+    <script>
+      'use strict';
+
+      const name = '     Ladislaus Jones     ';
+      console.log(name); // => '     Ladislaus Jones     '
+
+      // String - Methode/Funktion => trim()
+
+      console.log(name.trim()); // => 'Ladislaus Jones' (Leerzeichen davor und am Ende, nicht dazwischen)
+
+      // String - Methode/Funktion => trimStart()
+      console.log(name.trimStart()); // => 'Ladislaus Jones     '
+      console.log(name.trimLeft()); // => 'Ladislaus Jones     ', trimLeft() ist ein Alias von trimStart(), kein ES6 Standard
+
+      // String - Methode/Funktion => trimEnd()
+      console.log(name.trimEnd()); // => '     Ladislaus Jones'
+      console.log(name.trimRight()); // => '     Ladislaus Jones', trimRight() ist ein Alias von trimEnd(), kein ES6 Standard
+
+      // Beispiel mit mehr Leerzeichen dazwischen
+      const longName = '     Ladislaus       Jones     ';
+      const trimmedName = longName.trim();
+      const positionVonErstenLeerzeichen = trimmedName.indexOf(' ');
+
+      const vornamen = trimmedName.substring(0, positionVonErstenLeerzeichen);
+      console.log(vornamen);
+
+      const nachnamen = trimmedName
+        .substring(positionVonErstenLeerzeichen)
+        .trim();
+      console.log(nachnamen);
+    </script>
+  </body>
+</html>

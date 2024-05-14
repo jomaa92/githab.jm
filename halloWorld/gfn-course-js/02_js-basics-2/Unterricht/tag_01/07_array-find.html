@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.find()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.find()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/find"
+        >array.find()</a
+      >
+      - Die Methode <strong>find()</strong> gibt den Wert des Elements eines
+      Arrays zurück, welches <strong>als erstes</strong> die Bedingung einer
+      bereitgestellten Testfunktion erfüllt. Andernfalls wird
+      <code>undefined</code> zurückgegeben.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Methode find(callbackFunction(currentValue, index?, array?))
+      // Der erste Suchtreffer wird zurückgegeben
+
+      const longName = names.find((name) => name.length > 9);
+      console.log(longName); // => 'Persephone'
+
+      console.log(names.find((namenText) => namenText === 'Darius')); // => 'Darius'
+      console.log(names.find((namenText) => namenText === 'Homer')); // => undefined
+    </script>
+  </body>
+</html>

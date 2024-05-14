@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekursion - Rechteck (rectangle)</title>
+  </head>
+  <body>
+    <h1>Rekursion - Rechteck (rectangle)</h1>
+
+    <script>
+      'use strict';
+
+      // line erstellt einen String
+      const line = (length, char) => {
+        if (length === 0) return '';
+
+        return line(length - 1, char) + char;
+      };
+
+      // rectangle erstellt einen Rechteckt
+      const rectangle = (width, height, char) => {
+        if (height === 0) return '';
+
+        return rectangle(width, height - 1, char) + line(width, char) + '\n';
+      };
+
+      console.log(rectangle(10, 5, '🚨')); // => Rechteck
+      console.log(rectangle(10, 0, '🚨')); // => ''
+      console.log(rectangle(5, 5, '🐷')); // => Rechteck
+
+      // ======== ALTERNATIVE ZU REKURSION SIND SCHLEIFEN ========
+      const rectangleLoop = (width, height, char) => {
+        let rectangleText = '';
+
+        // In dieser Schleife wird das Rechteck gebaut
+        for (let y = 0; y < height; y++) {
+          let lineText = '';
+
+          // In dieser Schleife wird die line gebaut
+          for (let x = 0; x < width; x++) {
+            lineText += char;
+            // console.log(lineText);
+          }
+
+          rectangleText += lineText + '\n';
+        }
+
+        return rectangleText;
+      };
+
+      console.log(rectangleLoop(5, 5, '*'));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.startsWith()</title>
+  </head>
+  <body>
+    <h1>String.startsWith()</h1>
+
+    <a
+      href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith"
+      >String.startsWith()</a
+    >
+
+    <p>
+      Die <strong>startsWith()</strong>-Methode stellt fest, ob ein String mit
+      den Zeichen eines anderen Strings beginnt, falls dies so ist, wird
+      <code>true</code>, sonst wird <code>false</code> zurückgegeben.
+    </p>
+
+    <script>
+      'use strict';
+
+      const productName = '[Sale] Lightsaber Pen';
+
+      // String - Methode/Funktion startsWith()
+      console.log(productName.startsWith('[Sale]')); // => true
+      console.log(productName.startsWith('[sale]')); // => false
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for in Loop (for Schleife)</title>
+  </head>
+  <body>
+    <h1>for in Loop (for Schleife)</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
+        >for...in statement</a
+      >
+      Die <code>for...in-Anweisung</code> iteriert über alle aufzählbaren
+      String-Eigenschaften eines Objekts (ohne durch Symbole verschlüsselte
+      Eigenschaften), einschließlich geerbter aufzählbarer Eigenschaften.
+    </p>
+
+    <script>
+      'use strict';
+
+      const emptyArray = []; // leeres Array
+
+      // Objekte werden mit "{}" erstellt
+      const personObject = {
+        firstName: 'Max',
+        lastName: 'Mustermann',
+        age: 41,
+        height: 180.02,
+        hobbies: ['Basketball spielen', 'kochen'],
+        'beruf-im-dienst': 'Lehrer',
+      };
+
+      console.log(personObject); // => { firstName: 'Max', lastName: 'Mustermann', age: 41, height: 180.02, hobbies: ['Basketball spielen', 'kochen'] }
+
+      // Einzelne Eigenschaften/Attribute ansprechen
+      console.log(personObject.firstName); // => 'Max'
+      console.log(personObject.lastName); // => 'Mustermann'
+      console.log(personObject.age); // => 41
+      console.log(personObject.hobbies); // => ['Basketball spielen', 'kochen']
+
+      // prettier-ignore
+      // console.log(personObject.beruf-im-dienst); // => Uncaught ReferenceError: im is not defined
+
+      // []-Klammern auf Eigenschaften von Objekten zugreifen
+      console.log(personObject['height']); // => 180.02
+      console.log(personObject['beruf-im-dienst']); // => 'Lehrer'
+
+      // for (Eigenschaft in Objekt) { } bzw. for (attribute in object) { }
+      for (const eigenschaft in personObject) {
+        console.log(
+          `Attribute: ${eigenschaft} Wert: ${personObject[eigenschaft]}`
+        );
+      }
+    </script>
+  </body>
+</html>

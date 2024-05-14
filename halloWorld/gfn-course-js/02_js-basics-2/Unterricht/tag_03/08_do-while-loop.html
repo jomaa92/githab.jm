@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>do while loop</title>
+  </head>
+  <body>
+    <h1>do while loop</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while"
+        >do...while - Schleife</a
+      >
+      - Die <strong>do...while-Anweisung</strong> (Engl. statement) beschreibt
+      eine Schleife, die solange durchlaufen wird wie die Schleifenbedingung
+      wahr (Engl. true) ergibt. Die Schleifenbedingung (Engl. condition) wird am
+      Ende der Schleife ausgewertet.
+    </p>
+
+    <script>
+      'use strict';
+
+      // WHILE DO IST EINE ALTERNATIVE SCHREIBWEISE ZU WHILE LOOP
+
+      const names = ['Tick', 'Trick', 'Track'];
+
+      // ======= Deklarativ (was ...) =======
+      names.forEach((name, index) => {
+        console.log(`index: ${index} name: ${name}`);
+      });
+
+      console.log('=======');
+
+      // ======= Imperativ (wie...) =======
+
+      // do { ... } while(condition)
+
+      let i = 0;
+
+      do {
+        console.log(`index: ${i} name: ${names[i]}`);
+
+        i++;
+      } while (i < names.length);
+
+      // ==============
+
+      console.log('==============');
+
+      let numbers = [];
+
+      i = 0;
+
+      do {
+        numbers.push(i++);
+      } while (i < 10);
+
+      console.log(numbers); // => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    </script>
+  </body>
+</html>

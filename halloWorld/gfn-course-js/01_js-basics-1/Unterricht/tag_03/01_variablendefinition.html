@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variablendefinition</title>
+  </head>
+  <body>
+    <h1>Variablendefinition</h1>
+
+    <script>
+      'use strict';
+
+      const b = 10;
+
+      // ===== Variablendefinition =====
+      let a = 3 + b;
+
+      // Variablendefinition: let a = 3 + b
+      // Schlüsselwort: let
+      // Bezeichner: a
+      // Variablendeklaration: let a
+      // Zuweisung: a = 3 + b
+      // Ausdruck: 3 + b
+
+      // ========= Schreibweise von Variablen =========
+
+      // lowerCamelCase oder camelCase
+      let meineAdresse = 'Musterstraße 20';
+      let frageEins = 'Wie alt sind Sie?';
+
+      // SCREAMING_SNAKE_CASE
+      const TAX_RATE = 19;
+      const BASE_DOMAIN = 'www.gfn.de';
+      const PI = 3.14;
+
+      // ========= Schlüsselwort (Keyword) LET =========
+      let username;
+      console.log(username); // => undefined
+
+      username = 'Max';
+      console.log(username); // => 'Max'
+
+      username = 38;
+      console.log(username); // => 38
+
+      // let username = 'Lana'; // => SyntaxError: Identifier 'username' has already been declared
+      // const username = 'Lana'; // => SyntaxError: Identifier 'username' has already been declared
+
+      // WICHTIG: Variablen sind case-sensitive
+      let Username = 'Lana';
+      console.log(Username);
+
+      // ========= Schlüsselwort (Keyword) CONST =========
+      const myRole = 'admin';
+      // myRole = 'user'; // => TypeError: Assignment to constant variable
+
+      // ========= Schlüsselwort (Keyword) VAR =========
+      // "var" wurde vor ES6 (ECMAScript 2015)
+      // Es wird empfohlen var NICHT mehr zu nutzen, aufgrund ihres Scoping Verhalten
+      var vorname = 'John';
+      var nachname = 'Doe';
+      console.log(vorname + ' ' + nachname);
+
+      // ========= Gültige Variablennamen =========
+      // Gültige Variablennamen, aber entsprechen den Programmierrichtlinien von Google, AirBnb & ECMAScript NICHT
+
+      let $zahl = 2; // => 2
+      console.log($zahl);
+
+      let _meineVariable = 'Einen Wert';
+      console.log(_meineVariable); // => 'Einen Wert'
+
+      let ___self = 'this';
+      console.log(___self); // => 'this'
+
+      let counter_zaehler = 100;
+      console.log(counter_zaehler); // => 100
+
+      let zähler = 12;
+      console.log(zähler);
+
+      let éviter = 'vermeiden';
+      console.log(éviter); // => 'vermeiden'
+
+      const ᓚᘏᗢ = 'cat';
+      const 串 = 'test';
+      const المعرف = 'ID';
+      const straße = 'Musterstrasse';
+      const Math = 'test';
+
+      // ========= Ungültige Variablennamen =========
+      // let 😛 = 'lol';
+      // let 2ndCounter = 100;
+      // let counter-zaehler = 2;
+      // let prozent%zeichen = 50;
+      // let let = '';
+      // const const = '';
+      // let !not = false;
+    </script>
+  </body>
+</html>

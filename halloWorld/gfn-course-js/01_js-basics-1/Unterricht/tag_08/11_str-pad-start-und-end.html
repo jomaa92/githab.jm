@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.padStart() und String.padEnd()</title>
+  </head>
+  <body>
+    <h1>String.padStart() und String.padEnd()</h1>
+
+    <div>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/padStart"
+        >String.padStart()</a
+      >
+
+      <p>
+        The <strong>padStart(</strong>) method pads the current string with
+        another string (multiple times, if needed) until the resulting string
+        reaches the given length. The padding is applied from the start of the
+        current string.
+      </p>
+    </div>
+
+    <div>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd"
+        >String.padEnd()</a
+      >
+
+      <p>
+        The <strong>padEnd()</strong> method pads the current string with a
+        given string (repeated, if needed) so that the resulting string reaches
+        a given length. The padding is applied from the end of the current
+        string.
+      </p>
+    </div>
+
+    <script>
+      'use strict';
+
+      // String - Methode/Funktion padStart(maxLength, fillString?)
+
+      console.log('lorem'.padStart(10)); // => '     lorem'
+      console.log('1234'.padStart(10, '0')); // => '0000001234'
+
+      // Wenn maxLength kürzer als die Länge des Strings ist, dann bleibt der String unverändert
+      console.log('12345'.padStart(2, '#')); // => '12345'
+
+      // String - Methode/Funktion padEnd(maxLength, fillString?)
+
+      console.log('lorem'.padEnd(10)); // => 'lorem     '
+      console.log('1234'.padEnd(10, '0')); // => '1234000000'
+
+      // Wenn maxLength kürzer als die Länge des Strings ist, dann bleibt der String unverändert
+      console.log('12345'.padEnd(2, '#')); // => '12345'
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.slice()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.slice()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
+        >array.slice()</a
+      >
+      - Die <strong>slice()</strong> Methode schreibt eine flache Kopie (shallow
+      Copy) von einem Teil des Arrays in ein neues Array-Objekt von
+      <code>begin</code> bis <code>end</code> (end nicht enthalten). Das
+      originale Array wird nicht verändert. (<strong>side-effect-free</strong>)
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Methode slice(startIndex, endIndex)
+
+      const namesCopy = names.slice();
+
+      console.log(namesCopy); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr']
+
+      const smallNamesCopy = names.slice(7, 11);
+      console.log(smallNamesCopy); // => ['Darius', 'Felicity', 'Gideon', 'Esme']
+
+      // side effect free, d.h. das angesprochene Array "names" bleibt unverändert nach slice
+      console.log(names); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr']
+    </script>
+  </body>
+</html>

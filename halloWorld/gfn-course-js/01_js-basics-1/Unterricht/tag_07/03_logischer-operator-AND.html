@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logischer Operator - UND bzw. AND (&&)</title>
+  </head>
+  <body>
+    <h1>Logischer Operator - UND bzw. AND (&&)</h1>
+
+    <script>
+      'use strict';
+
+      const DISCOUNT_VALUE = 7;
+
+      const numberOfOrders = Number(
+        prompt('How many orders has the customer placed so far?')
+      );
+      const cartTotal = Number(prompt("What is the cart's total?"));
+
+      let discountPercentage = 0;
+
+      // Mit UND bzw. AND Operator
+      // && UND bzw. AND Operator
+      // Alle Bedingungen müssen wahr sein, sobald einer der Bedigung falsch ist, ist die ganze Bedigung falsch
+
+      // Schreibweise #1: if Verzweigung
+      if (cartTotal >= 100 && numberOfOrders === 0) {
+        discountPercentage = DISCOUNT_VALUE;
+      }
+
+      console.log(`Current discount: ${discountPercentage}%`);
+
+      // Schreibweise #2: Ternärer Operator
+      // prettier-ignore
+      const discountPercentageShort = (cartTotal >= 100 && numberOfOrders === 0) ? DISCOUNT_VALUE : 0
+
+      console.log(`Discount short: ${discountPercentageShort}%`);
+    </script>
+  </body>
+</html>

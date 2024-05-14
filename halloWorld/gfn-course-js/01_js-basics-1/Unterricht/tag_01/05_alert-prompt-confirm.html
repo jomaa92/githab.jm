@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alert(), prompt(), confirm()</title>
+  </head>
+  <body>
+    <h1>alert(), prompt(), confirm()</h1>
+
+    <script>
+      // ======== ALERT() ========
+      // https://developer.mozilla.org/en-US/docs/Web/API/Window/alert
+      alert('Das ist ein Alert');
+
+      window.alert('JavaScript Kurs');
+
+      const alertResponse = alert('Gib mir etwas zurück!');
+      console.log(alertResponse); // => Rückgabewert: undefined, alert() hat kein Rückgabewert
+
+      // ======== PROMPT() ========
+      // https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
+      const response = prompt('Was ist die Antwort auf alles?');
+      console.log(response); // => Rückgabewert als String von dem Eingabefeld der Dialogbox ODER null, wenn auf "Cancel" gedrückt wird
+
+      // ======== CONFIRM() ========
+      // https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
+      const coffeeResponse = confirm('Lust auf Pause?');
+      console.log(coffeeResponse);
+    </script>
+  </body>
+</html>

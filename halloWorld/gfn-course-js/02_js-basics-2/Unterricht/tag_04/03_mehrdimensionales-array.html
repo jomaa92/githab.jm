@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mehrdimensionales Array</title>
+  </head>
+  <body>
+    <h1>Mehrdimensionales Array</h1>
+
+    <script>
+      'use strict';
+
+      // Notiz: Array kann unterschiedliche Datentypen besitzen
+      const mixedArray = [
+        'Max Mustermann',
+        38,
+        true,
+        ['JavaScript lernen', 'Gassi gehen'],
+        () => {
+          console.log('Funktion in einem Array');
+        },
+      ];
+
+      console.log(mixedArray); // => ['Max Mustermann', 38, true, Array(2), ƒ]
+      console.log(mixedArray[0]); // => 'Max Mustermann'
+      console.log(mixedArray[2]); // => true
+      console.log(mixedArray[4]); // => () => { console.log('Funktion in einem Array'); }
+      console.log(mixedArray[mixedArray.length - 1]); // => () => { console.log('Funktion in einem Array'); }
+
+      // ====== Eindimensionales Array ======
+      const personen = ['Max', 'Jane', 'Joe', 'John'];
+
+      console.log(personen); // => ['Max', 'Jane', 'Joe', 'John']
+
+      // Mehrdimensionales Array sind verschachtelte Arrays
+      // ====== Zweidimensionales Array (Mehrdimensional) ======
+      const personen2D = [
+        ['Max', 'Mustermann', 33],
+        ['Jane', 'Doe', 30],
+        ['Joe', 'Doe', 31],
+        ['John', 'Wayne'],
+      ];
+
+      console.log(personen2D); // => [Array(3), Array(3), Array(3), Array(2)]
+
+      console.log(personen2D[0]); // => ['Max', 'Mustermann', 33]
+      console.log(personen2D[0][1]); // => 'Mustermann'
+      console.log(personen2D[0][2]); // => 33
+
+      console.log(personen2D[2]); // => ['Joe', 'Doe', 31]
+      console.log(personen2D[2][0]); // => 'Joe'
+
+      // ====== Mehrdimensionales Array (mehr als 2D) ======
+      const kontakte1 = ['Max', 'Moritz', 'Anne'];
+      const kontakte2 = ['Darius', 'Berny', 'Boris'];
+
+      const kontakteArray = [
+        ['Max', 'Mustermann', ['059 45666', '693 54321'], kontakte1],
+        ['John', 'Doe', ['083 58321', '317 2053343'], kontakte2],
+      ];
+
+      console.log(kontakteArray[0]); // => ['Max', 'Mustermann', Array(2), Array(3)]
+      console.log(kontakteArray[0][2]); // => ['059 45666', '693 54321']
+      console.log(kontakteArray[0][2][1]); // => '693 54321'
+
+      // ====== Mehrdimensionales Array in einem Objekt ======
+      const contacts = [
+        {
+          firstName: 'Max',
+          lastName: 'Mustermann',
+          phone: ['059 45666', '693 54321'],
+          friends: kontakte1,
+        },
+        {
+          firstName: 'John',
+          lastName: 'Doe',
+          phone: ['083 58321', '317 2053343'],
+          friends: kontakte2,
+        },
+      ];
+
+      console.log(contacts); // => [{…}, {…}]
+      console.table(contacts);
+
+      console.log(contacts[1]); // => { firstName: 'John', lastName: 'Doe', phone: Array(2), friends: Array(3) }
+
+      // Methode #1
+      console.log(contacts[1].phone[0]); // => '083 58321'
+
+      // Methode #2
+      console.log(contacts[1]['phone'][0]); // => '083 58321'
+    </script>
+  </body>
+</html>

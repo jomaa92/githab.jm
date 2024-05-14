@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 32: Passwortprüfer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 32: Passwortprüfer</h1>
+
+          <p>
+            Schreibe einen Passwortprüfer. Der Nutzer soll aufgefordert werden,
+            ein Passwort einzugeben. Das eingegebene Passwort soll dann durch
+            einen regulären Ausdruck überprüft werden. Zuletzt soll der Nutzer
+            darauf hingewiesen werden, ob sein Passwort den Anforderungen
+            entspricht oder nicht. Das Passwort muss mindestens ein Zeichen aus
+            jeder der folgenden Gruppen enthalten:
+          </p>
+
+          <ul class="list">
+            <li>Zahlen</li>
+            <li>Kleinbuchstaben</li>
+            <li>Großbuchstaben</li>
+            <li>Sonderzeichen: $, @, %, !</li>
+            <li>4–20 Zeichen</li>
+          </ul>
+
+          <p>Alle anderen Zeichen sind untersagt.</p>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const pwd = prompt('Bitte geben Sie ein Passwort ein.');
+
+      const validPassword = (password) => {
+        // Füge die Regex Expression in .match ein
+        return password.match();
+      };
+
+      alert(`Ihr Passwort ist ${validPassword(pwd) ? 'gültig' : 'ungültig'}`);
+    </script>
+  </body>
+</html>

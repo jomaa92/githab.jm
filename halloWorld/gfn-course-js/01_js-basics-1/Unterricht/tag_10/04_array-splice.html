@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.splice()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.splice()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
+        >array.splice()</a
+      >
+      - Die <strong>splice()</strong> Methode ändert den Inhalt eines Arrays
+      durch das Entfernen vorhandener Elemente und/oder Hinzufügen neuer
+      Elemente.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Methode splice(start, deleteCount, item1, item2)
+      // item1, item2 etc. sind die Einträge die wir optional hinzufügen können
+      // splice(start, deleteCount) => wenn wir nur Einträge löschen wollen
+
+      let cuttedNames;
+      let namesCopy;
+
+      // ====== Mehrere Einträge gezielt löschen ======
+      console.log('====== Mehrere Einträge gezielt löschen ======');
+
+      // Kopie eines Array durch den spread-Operator
+      namesCopy = [...names];
+
+      // cuttedNames = namesCopy.splice(2, 1) // => ['Seraphina']
+      // cuttedNames = namesCopy.splice(2, 3); // => ['Seraphina', 'Thaddeus', 'Lavinia']
+      cuttedNames = namesCopy.splice(2, 2); // => ['Seraphina', 'Thaddeus']
+
+      console.log(cuttedNames); // => ['Seraphina', 'Thaddeus']
+
+      // ====== Mehrere Einträge gezielt hinzufügen ======
+      console.log('====== Mehrere Einträge gezielt hinzufügen ======');
+
+      // Kopie eines Array durch den spread-Operator
+      namesCopy = [...names];
+
+      // An dem Index 4 löschen wir genau 0 Elemente und fügen dann 3 neue hinzu
+      cuttedNames = namesCopy.splice(4, 0, 'Tick', 'Trick', 'Track');
+
+      console.log(cuttedNames); // => [], weil keine Elemente entfernt worden sind
+      console.log(namesCopy); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Tick', 'Trick', 'Track', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr']
+
+      // ====== Mehrere Einträge gezielt ersetzten ======
+      console.log('====== Mehrere Einträge gezielt ersetzten ======');
+
+      // Kopie eines Array durch den spread-Operator
+      namesCopy = [...names];
+
+      // An dem Index 5 haben wir 3 Elemente entfernt und dafür drei neue Elemente hinzugefügt
+      cuttedNames = namesCopy.splice(5, 3, 'Tick', 'Trick', 'Track');
+
+      console.log(cuttedNames); // => ['Cyrus', 'Ariadne', 'Darius'] -> Elemente die entfernt worden sind
+
+      console.log(namesCopy); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Tick', 'Trick', 'Track', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina', 'Zephyr']
+
+      // ====== Letzter Eintrag entfernen ======
+      console.log('====== Letzter Eintrag entfernen ======');
+
+      // Kopie eines Array durch den spread-Operator
+      namesCopy = [...names];
+      console.log(namesCopy.length); // => 18
+
+      // length zählt ab 1 und index ab 0, deswegen müssen wir mit -1 rechnen, wenn wir mit length bei Index arbeiten
+      cuttedNames = namesCopy.splice(namesCopy.length - 1, 1);
+
+      console.log(cuttedNames); // => ['Zephyr'], das Element was entfernt wurde
+      console.log(namesCopy.length); // => 17
+      console.log(namesCopy); // => ['Aurelia', 'Cassius', 'Seraphina', 'Thaddeus', 'Lavinia', 'Cyrus', 'Ariadne', 'Darius', 'Felicity', 'Gideon', 'Esme', 'Leander', 'Persephone', 'Maximilian', 'Phoebe', 'Roman', 'Valentina']
+    </script>
+  </body>
+</html>

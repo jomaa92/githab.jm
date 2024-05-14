@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Logischer Operator - UND bzw. AND (&&) Ausnahmen bzw. Sonderfälle
+    </title>
+  </head>
+  <body>
+    <h1>Logischer Operator - UND bzw. AND (&&) Ausnahmen bzw. Sonderfälle</h1>
+
+    <script>
+      'use strict';
+
+      // MDN https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+      // In JavaScript sind null, undefined, 0, false, NaN und '' sind falsy. Alles andere gilt als true
+
+      // 10 && 1 => true && true
+      const condition1 = 10 && 1; // Im Gegensatz zu OR (||) Operator, muss JavaScript alle beiden Seiten angucken und der letzte Wert wird dann genommen
+      console.log(condition1); // => 1
+
+      const condition1Or = 10 || 1; // Sobald bei OR (||) eine Seite true ist, ist die ganze Bedingung true
+      console.log(condition1Or); // => 10
+
+      const condition2 = false && 2; // JS interpretiert nicht die "rechte Seite", da der Vergleich bereits mit false gescheitert ist
+      console.log(condition2); // => false
+
+      const condition3 = null && 3;
+      console.log(condition3); // => null, weil null ist "falsy"
+
+      const condition4 = undefined && 4;
+      console.log(condition4); // => undefined, weil undefined ist "falsy"
+
+      const condition5 = 0 && 5;
+      console.log(condition5); // => 0, weil 0 ist "falsy"
+
+      const condition6 = NaN && 6;
+      console.log(condition6); // => NaN, weil NaN ist "falsy"
+
+      const condition7 = '' && 7;
+      console.log(condition7); // => '', weil '' also ein leerer String gilt als "falsy"
+
+      // Wenn ein Element existiert (Bedigung wird erfüllt), dann führe folgende Aktion aus...
+      document.querySelector('h1') &&
+        (document.querySelector('h1').style.border = '1px solid red');
+
+      // Andere Schreibweise mit if Verzweigung
+      if (document.querySelector('h1')) {
+        document.querySelector('h1').style.border = '1px solid red';
+      }
+    </script>
+  </body>
+</html>

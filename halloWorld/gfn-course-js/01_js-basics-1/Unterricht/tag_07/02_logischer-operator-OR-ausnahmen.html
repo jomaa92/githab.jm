@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Logischer Operator - ODER bzw. OR (||) Ausnahmen bzw. Sonderfälle
+    </title>
+  </head>
+  <body>
+    <h1>Logischer Operator - ODER bzw. OR (||) Ausnahmen bzw. Sonderfälle</h1>
+
+    <script>
+      'use strict';
+
+      // MDN https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+      // In JavaScript sind null, undefined, 0, false, NaN und '' sind falsy. Alles andere gilt als true
+
+      const condition1 = 1 || 10; // JavaScript interpretiert nicht die "rechte Seite", da der Vergleich mit 4 bereits erfüllt ist
+      console.log(condition1); // => 1
+
+      const condition2 = false || 2; // Weil false den Vergleich nicht erfüllt, muss JS die rechte Seite angucken
+      console.log(condition2); // => 2
+
+      const condition3 = NaN || 3; // NaN ist "falsy"
+      console.log(condition3); // => 3
+
+      const condition4 = '' || 4; // '' also ein leerer String ist "falsy"
+      console.log(condition4); // => 4
+
+      const condition5 = null || 5; // null ist "falsy"
+      console.log(condition5); // => 5
+
+      const condition6 = undefined || 6; // undefined ist "falsy"
+      console.log(condition6); // => 6
+
+      const condition7 = 0 || 7; // 0 also die Zahl 0 ist "falsy"
+      console.log(condition7); // => 7
+
+      const headlineEl =
+        document.querySelector('h1') || alert('h1 existiert nicht');
+      console.log(headlineEl);
+    </script>
+  </body>
+</html>

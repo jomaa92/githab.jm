@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 15: Reichweite & Verbrauch</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 15: Reichweite & Verbrauch</h1>
+          <ol>
+            <li>
+              Schreiben Sie ein Programm zur Kraftstoffverbrauchsberechnung für
+              Pkws. Der Benutzer soll die gefahrenen Kilometer (Strecke) und die
+              verbrauchte Benzinmenge angeben. Das Programm ermittelt daraufhin
+              den Kraftstoffverbrauch auf 100 km und gibt ihn aus.
+
+              <blockquote>
+                <strong>Hinweis:</strong> Verwenden Sie folgende Formel:<br />
+                <code
+                  >Verbrauch [l/100km] = Benzinmenge [l] / Strecke [km] ×
+                  100</code
+                >
+              </blockquote>
+            </li>
+            <li>
+              Erweitern Sie das Programm derart, dass das Programm den Benutzer
+              außerdem nach seiner Tankgröße fragt und ergänzend die maximale
+              Reichweite in Kilometern berechnet.
+              <blockquote>
+                <strong>Hinweis:</strong> Verwenden Sie folgende Formel:<br />
+                <code>
+                  Reichweite [km] = Tankgröße [l] × Strecke [km] / Benzinmenge
+                  [l]
+                </code>
+              </blockquote>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <section class="section-calculator my-5">
+        <div class="container">
+          <form class="form-calculator" method="get">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="mb-3">
+                  <label for="input-strecke" class="form-label"
+                    >Strecke (in km)</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="strecke"
+                    id="input-strecke"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="mb-3">
+                  <label for="input-benzinmenge" class="form-label"
+                    >verbrauchte Benzinmenge (in l)</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="benzinmenge"
+                    id="input-benzinmenge"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- row -->
+            <div class="row">
+              <div class="col">
+                <div class="mb-3">
+                  <label for="input-tankgroesse" class="form-label"
+                    >Tankgröße (in l)</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="tangroesse"
+                    id="input-tankgroesse"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- row -->
+            <div class="row">
+              <div class="col">
+                <!-- <input type="submit" value="Rechnen" class="btn btn-dark button-calculate" /> -->
+
+                <button type="submit" class="btn btn-dark button-calculate">
+                  Rechnen
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="alert alert-secondary my-3" id="output"></div>
+          <div class="alert alert-secondary my-3" id="output2"></div>
+        </div>
+      </section>
+    </main>
+    <script>
+      'use strict';
+
+      const formEl = document.querySelector('.form-calculator');
+      const inputStreckeEl = document.querySelector('#input-strecke');
+      const inputBenzinmengeEl = document.querySelector('#input-benzinmenge');
+      const inputTankgroesseEl = document.querySelector('#input-tankgroesse');
+      const outputVerbrauchEl = document.querySelector('#output');
+      const outputReichweiteEl = document.querySelector('#output2');
+
+      formEl.addEventListener('submit', (e) => {
+        e.preventDefault(); // Standardverhalten unterbinden
+
+        const gasAmount = Number(inputBenzinmengeEl.value);
+        const distance = Number(inputStreckeEl.value);
+        const tankSize = Number(inputTankgroesseEl.value);
+
+        // Kraftstoffverbrauchsberechnung für Pkws
+        // Verbrauch [l/100km] = Benzinmenge [l] / Strecke [km] × 100
+        const gasUsage = (gasAmount / distance) * 100;
+
+        // Maximale Reichweite
+        // Reichweite [km] = Tankgröße [l] × Strecke [km] / Benzinmenge [l]
+        const maxRange = (tankSize * distance) / gasAmount;
+
+        const gasUsageText = `Verbauch: ${gasUsage.toFixed(2)} l/100km`;
+        const maxRangeText = `Maximale Reichweite: ${maxRange.toFixed(2)} km`;
+
+        outputVerbrauchEl.textContent = gasUsageText;
+        outputReichweiteEl.textContent = maxRangeText;
+      });
+    </script>
+  </body>
+</html>

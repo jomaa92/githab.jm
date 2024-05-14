@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 10: Verbessere ungeeignete Variablenbezeichner!</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <h1>Übung 10: Verbessere ungeeignete Variablenbezeichner!</h1>
+
+        <table class="table table-striped my-5">
+          <thead class="table-dark">
+            <tr>
+              <th>Bezeichner</th>
+              <th>Bedeutung</th>
+              <th>Problem</th>
+              <th>Vorschläge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>bildNr</td>
+              <td>Nummer eines Bildes auf der Seite</td>
+              <td>-</td>
+              <td>imageNum</td>
+            </tr>
+            <tr>
+              <td>bildid</td>
+              <td>Die id eines Bildes auf der Seite</td>
+              <td class="font-italic">
+                id ist als Abkürzung zulässig, aber Bild und id sind getrennte
+                Wortteile
+              </td>
+              <td>bildId, imageId</td>
+            </tr>
+
+            <tr>
+              <td>bildZähler</td>
+              <td>Anzahl der hochgeladenen Bilder</td>
+              <td>keine Sonderzeichen bzw. kein Umlaut</td>
+              <td>bildZaehler, imageCounter, imgCounter</td>
+            </tr>
+            <tr>
+              <td>
+                zahlerFuerDie AktuelleZeileIn DerTabelleDie DieBenutzer
+                Auflistet
+              </td>
+              <td>
+                Zähler für die aktuelle Zeile, in der Tabelle, die die Benutzer
+                auflistet.
+              </td>
+              <td>zu lang, verwirrend und unleserlich</td>
+              <td>
+                aktuelleZeile, zeileAktBenutzer, aktuelleTrNr, selectedUserRow,
+                currentUserRow
+              </td>
+            </tr>
+            <tr>
+              <td>urenKelvornAme</td>
+              <td>Vorname des Sohns eines Enkels</td>
+              <td>
+                falsche Anwendung von CamelCase, keiner weiß was das darstellen
+                soll
+              </td>
+              <td>urenkelVorname, greatGrandsonFirstname</td>
+            </tr>
+            <tr>
+              <td>x</td>
+              <td>Geburtsdatum</td>
+              <td>nicht eindeutig</td>
+              <td>geburtsdatum, birthday</td>
+            </tr>
+            <tr>
+              <td>y</td>
+              <td>Nummer der aktuellen Seite</td>
+              <td>nicht eindeutig, zu ungenau</td>
+              <td>aktuelleSeite, aktuelleSeitennr, currentPage</td>
+            </tr>
+            <tr>
+              <td>d</td>
+              <td>Dateiname</td>
+              <td>zu ungenau</td>
+              <td>dateiname, fileName</td>
+            </tr>
+
+            <tr>
+              <td>faqUeberschrift</td>
+              <td>Überschrift der Liste häufig gestellter Fragen</td>
+              <td>–</td>
+              <td>faqHeader, faqHeadline</td>
+            </tr>
+
+            <tr>
+              <td>menHoeh</td>
+              <td>Höhe eines Menüs</td>
+              <td>falsch geschrieben</td>
+              <td>menuHeight, menuHoehe</td>
+            </tr>
+
+            <tr>
+              <td>strName</td>
+              <td>Straßenname</td>
+              <td>-</td>
+              <td>streetName</td>
+            </tr>
+
+            <tr>
+              <td>wanf</td>
+              <td>Wandfarbe</td>
+              <td>keine ungewähnliche Abkürzungen nutzen</td>
+              <td>wallPaint, wallColor, wandFarbe</td>
+            </tr>
+
+            <tr>
+              <td>PoStLeiTZaHl</td>
+              <td>Postleitzahl</td>
+              <td>falsche Anwendung von camelCase</td>
+              <td>postleitZahl, areaCode, zipCode, ZIP</td>
+            </tr>
+            <tr>
+              <td>PLZ</td>
+              <td>Postleitzahl</td>
+              <td>
+                nur Konstanten sollten alles groß geschrieben werden, da
+                Postleiitzahlen sich häufig ändern
+              </td>
+              <td>plz, postleitZahl, areaCode, zipCode, ZIP</td>
+            </tr>
+
+            <tr>
+              <td>plz</td>
+              <td>Postleitzahl</td>
+              <td>passt, weil es eine gängige Abkürzung ist</td>
+              <td>plz, postleitZahl, areaCode, zipCode, ZIP</td>
+            </tr>
+
+            <tr>
+              <td>2.frage</td>
+              <td>Die 2. Frage</td>
+              <td>
+                Variablen sollten nicht mit einer Zahl beginnen und ein
+                Satzzeichen beinhalten
+              </td>
+              <td>frage2, secondQuestion, zweiteFrage, question2</td>
+            </tr>
+            <tr>
+              <td>anzahl?</td>
+              <td>
+                Die vom Benutzer eingegebene Anzahl von Produktexemplaren, die
+                er kaufen möchte.
+              </td>
+              <td>nicht eindeutig und keine Satzzeichen am Ende</td>
+              <td>
+                anzahlProdukt, kaufAnzahl, checkoutItemCounter, buyAmount,
+                productQuantityToBuy
+              </td>
+            </tr>
+            <tr>
+              <td>wichtige Meldung!</td>
+              <td>
+                Die Variable enthält den Text einer wichtigen Systemmeldung.
+              </td>
+              <td>keine Leerzeichen und keine Satzzeichen am Ende</td>
+              <td>
+                meldungWichtig, wichtigeMeldung, importantAlert, importantMsg,
+                alertUrgent, msgUrgent, msgAlert, alertMsg
+              </td>
+            </tr>
+            <tr>
+              <td>pi</td>
+              <td>Die Zahl π (3.14…)</td>
+              <td>
+                PI groß schreiben, weil es immer die gleiche Konstante ist
+              </td>
+              <td>PI, NUMBER_PI</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script>
+      'use strict';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restparameter (spread operator ...)</title>
+  </head>
+  <body>
+    <h1>Restparameter (spread operator ...)</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax"
+        >spread-operator</a
+      >
+      Die <strong>Spread-Syntax</strong> erlaubt es, einen einzelnen
+      Array-Ausdruck oder String an Stellen zuexpandieren, an denen Null oder
+      mehr Argumente (für Funktionsaufrufe) oder Elemente (für Array-Literale)
+      erwartet werden, oder einen Objekt-Ausdruck an Stellen zu expandieren, an
+      denen Null oder mehr Schlüssel-Wert-Paare (für Objektliterale) erwartet
+      werden.
+    </p>
+
+    <script>
+      'use strict';
+
+      // Bei Restparameter können wir unendliche viele Parameter auffangen
+
+      const greetWith = (greeting, ...names) => {
+        return names.map((name) => `${greeting} ${name}`);
+      };
+
+      console.log(greetWith('Hallo', 'Goldy', 'Ladislaus', 'Heribert')); // => ['Hallo Goldy', 'Hallo Ladisluas', 'Hallo Heribert']
+
+      console.log(greetWith('Goldy', 'Hallo', 'Ladislaus', 'Heribert')); // => ['Goldy Hallo', 'Goldy Ladislaus', 'Goldy Heribert']
+
+      // Restparameter bei Higher Order Funktion
+
+      const names = ['Tick', 'Trick', 'Track'];
+
+      // Array.push() ein Element am Ende des Array hinzufügen
+      names.push('Max');
+      console.log(names); // => ['Tick', 'Trick', 'Track', 'Max']
+
+      // Restparameter fängt mehrere Namen auf
+      names.push('John', 'Lana', 'Wayne');
+      console.log(names); // => ['Tick', 'Trick', 'Track', 'Max', 'John', 'Lana', 'Wayne']
+
+      // Restparameter bei console.log()
+      console.log('Hi', 'Lana!', 'You okay?'); // => 'Hi Lana! You okay?'
+    </script>
+  </body>
+</html>

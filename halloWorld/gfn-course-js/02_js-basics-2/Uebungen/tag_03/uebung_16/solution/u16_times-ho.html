@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 16: Der Mann mit der Zipfelmütze</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 16: Der Mann mit der Zipfelmütze</h1>
+          <p>
+            Weil es draußen gerade schneit, könnten Sie ein kleines Programm
+            schreiben, dass 3 mal <code>Ho!</code> in die Konsole loggt.
+            Verwenden Sie die Funktion <code>times </code>dafür.
+          </p>
+          <p>
+            Wenn bei Ihnen gerade eher heißes Wetter ist, können Sie natürlich
+            auch zur Piratenversion greifen und stattdessen 3 Mal
+            <code>Arrrr!</code> ausgeben.
+          </p>
+        </div>
+
+        <div class="alert alert-secondary output pb-0"></div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const outputEl = document.querySelector('.output');
+
+      const times = (n, fn) => {
+        const result = Array(n).fill(0);
+        result.forEach((x, i, r) => (r[i] = fn(i)));
+        return result;
+      };
+
+      const winterMood = times(3, () => 'Ho!').join(' ');
+      const summerMood = times(3, () => 'Arrrr!').join(' ');
+
+      console.log(winterMood); //=> 'Ho! Ho! Ho!'
+      console.log(summerMood); //=> 'Arrrr! Arrrr! Arrrr!'
+
+      outputEl.innerHTML = `<p>${winterMood} <br/> ${summerMood}</p>`;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.findIndex()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.findIndex()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex"
+        >array.findIndex()</a
+      >
+      - Die Methode <strong>findIndex()</strong> gibt den Index des Elements
+      eines Arrays zurück, welches <strong>als erstes</strong> die Bedingung
+      einer bereitgestellten Testfunktion erfüllt. Andernfalls wird
+      <code>-1</code> zurückgegeben.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array Method findIndex(callbackFunction(currentValue, index?, array?))
+
+      console.log(names.find((name) => name.length > 9)); // => 'Persephone'
+
+      const longNameIdx = names.findIndex((name) => name.length > 9);
+      console.log(longNameIdx); // => 12, der Index von 'Persephone'
+
+      console.log(names.findIndex((namenText) => namenText === 'Seraphina')); // => 2
+      console.log(names.findIndex((namenText) => namenText === 'Maximilian')); // => 13
+
+      console.log(names.findIndex((namenText) => namenText === 'Homer')); // => -1
+      console.log(names.indexOf('Homer')); // => -1
+    </script>
+  </body>
+</html>

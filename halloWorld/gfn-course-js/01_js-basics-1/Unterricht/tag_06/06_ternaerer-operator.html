@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ternärer/Tertiärer Operator</title>
+  </head>
+  <body>
+    <h1>Ternärer/Tertiärer Operator</h1>
+
+    <script>
+      'use strict';
+
+      const productCategory = 'books';
+
+      const answer = prompt('Product Category?');
+
+      /*
+      let taxRate;
+
+      if (answer === productCategory) {
+        taxRate = 1.07;
+      } else {
+        taxRate = 1.19;
+      } 
+      */
+
+      // Syntax: Bedigung ? [Bedigung WAHR] : [Bedigung FALSCH]
+      // prettier-ignore
+      const taxRate = (answer === productCategory) ? 1.07 : 1.19;
+
+      console.log(taxRate);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>local scoping (Gültigkeitsbereiche) von let & const</title>
+  </head>
+  <body>
+    <h1>local scoping (Gültigkeitsbereiche) von let & const</h1>
+
+    <p>
+      Variablen die innerhalb von Code-Blöcken ({...}) definiert werden, sind
+      nicht außerhalb zugreifbar. Die geschweiften Klammern {} kapseln die
+      Variablen ab.
+    </p>
+
+    <p>
+      Wir können die gleichen Variablenbezeichner verwenden, wenn die gleiche
+      Variable vorher in einem anderen Code-Block eingegrenzt war.
+    </p>
+
+    <p>
+      Variablen innerhalb von Funktionen sind nicht zugänglich außerhalb der
+      Funktion.
+    </p>
+
+    <script>
+      'use strict';
+
+      // b definieren wir global
+      let b = 1;
+
+      b = 2;
+
+      console.log(b); // => 2
+
+      // "{...}" wird als Code-Block bezeichnet
+
+      // ===== if Statements als Code-Block =====
+      if (true) {
+        let a = 1;
+        const c = 4;
+
+        console.log(b); // => 2
+
+        b = 3;
+
+        console.log(b); // => 3, b wurde außerhalb des Code-Blocks definiert
+        console.log(a); // => 1, a wurde innerhalb des Code-Blocks definiert
+        console.log(c); // => 4, c wurde innerhalb des Code-Blocks definiert
+      }
+
+      // Variablen die innerhalb von Code-Blöcken definiert werden, sind nicht außerhalb zugreifbar
+      // console.log(a); // => Uncaught ReferenceError: a is not defined
+      // console.log(c); // => Uncaught ReferenceError: c is not defined
+      console.log(b); // => 3, b ist eine globale Variable, deshalb kann man auf sie zugreifen
+
+      // ===== Funktionen als Code-Block =====
+      const testFunktion = () => {
+        let d = 'text';
+
+        b = 5;
+
+        console.log('b in testFunktion', b); // => 'b in testFunktion' 5
+
+        // Wir können die gleichen Variablenbezeichner verwenden, da die Variable "a" vorher in einem anderen Code-Block eingegrenzt war
+        let a = 2;
+        console.log('testFunktion', a); // => 'testFunktion' 2
+
+        d = d + b;
+        console.log(d); // => 'text5'
+
+        // In Code-Blöcken von Funktionen IMMER einen return Statement verwenden
+        return d;
+      };
+
+      console.log('b:', b); // => 'b:' 3
+
+      const ergebnis = testFunktion();
+
+      console.log('b:', b); // => 'b:' 5
+
+      // Variablen innerhalb von Funktionen sind nicht zugänglich außerhalb der Funktion
+      // console.log(d); // => ReferenceError: d is not defined
+      console.log(ergebnis); // => 'text5'
+
+      // ===== Schleifen als Code-Block =====
+      for (let i = 0; i < 3; i++) {
+        console.log(i); // => 0, 1, 2 in der Reihenfolge
+      }
+      // console.log(i); // => ReferenceError: i is not defined
+    </script>
+  </body>
+</html>

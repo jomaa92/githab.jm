@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.every()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.every()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/every"
+        >array.every()</a
+      >
+      - Die <strong>every()</strong> Methode testet ob alle Elemente in einem
+      Array einen Test bestehen, welcher mittels einer implementierten Funktion
+      bereitgestellt wird.
+    </p>
+
+    <script>
+      'use strict';
+
+      const ageRatings = [6, 6, 18, 0, 12, 16, 0, 18, 6, 0, 12];
+
+      // Array Methode every(callbackFn(currentValue, index?, array?))
+
+      const isEveryMovieForChildren = (ratings) => {
+        return ratings.every((ageRating) => ageRating < 18);
+      };
+
+      console.log(isEveryMovieForChildren(ageRatings)); // => false, weil nicht ALLE Werte in dem Array den Test bestanden haben
+
+      console.log(ageRatings.every((ageRating) => ageRating >= 0)); // true
+
+      // Hier gilt quasi alle JavaScript "falsy" Werte
+      const isEveryNumberEven = [2, 4, 8, 10].every((number) => {
+        return number % 2 === 0;
+      });
+
+      console.log(isEveryNumberEven); // => true, weil alle Zahlen den Test bestehen
+    </script>
+  </body>
+</html>

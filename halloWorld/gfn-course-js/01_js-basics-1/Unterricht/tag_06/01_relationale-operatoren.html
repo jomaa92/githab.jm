@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relationale Operatoren</title>
+  </head>
+  <body>
+    <h1>Relationale Operatoren</h1>
+
+    <script>
+      'use strict';
+
+      console.log(3 < 7); // => true
+      console.log(7 < 3); // => false
+
+      console.log(5 > 2); // => true
+      console.log(5 < 2); // => false
+
+      // prettier-ignore
+      console.log(10 > (2 ** 2 + 1)); // => true
+
+      // -------- Strict equality (===) --------
+      console.log('--- Strict equality (===) ---');
+      // Überprüft ob beide Operanten (operands) gleich sind in Inhalt und Datentyp
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality
+
+      console.log(1 === 1); // => true
+      console.log('1' === 1); // => false, weil der Datentyp anders ist
+
+      // -------- Equality (==) --------
+      console.log('--- Equality (==) ---');
+      // Überprüft ob beide Operanten (operands) gleich sind, aber es wird nicht nach Datentyp verglichen
+      console.log(1 == 1); // => true
+      console.log('1' == 1); // => true
+
+      // -------- Strict inequality (!==) --------
+      // Überprüft ob beide Operanten (operands) nicht gleich sind in Inhalt und Datentyp
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality
+      console.log(4567 === 4567); // => true
+      console.log(4567 !== 4567); // => false, !== guckt nach einer Verneinung
+
+      console.log(1 !== 1); // => false
+      console.log('hallo' !== 'hallo'); // => false
+      console.log('1' !== 1); // => true
+
+      console.log('-------');
+
+      console.log('Musterfrau' === 'Musterfrau'); // => true
+      console.log('Musterfrau' === 'musterfrau'); // => false
+      console.log('Musterfrau'.toLowerCase() === 'musterfrau'); // => true
+
+      // Lexikographische Vergleiche - https://www.asciitable.xyz/
+      // Lexikographisch wird verglichen, wenn beide Operanten Strings sind
+      // Es wird nach der Position in der ASCII Tabelle verglichen
+      // Prüfungsrelevante Reihenfolge: Sonderzeichen < Zahlen < Großbuchstaben < Kleinbuchstaben
+      console.log('Lexikographische Vergleiche');
+
+      console.log(5 > 'a'); // => false, weil kein lexikographischer Vergleich
+      console.log('5' < 'a'); // => true -> (53 < 97)
+      console.log('Ladislaus' > 'Oswine'); // => false -> (76 > 79) => false
+      console.log('Ladislaus' < 'Oswine'); // => true -> (76 < 79) => true
+      console.log('Padislaus' > 'Oswine'); // => true -> (80 > 79) => true
+
+      console.log('A' > 'a'); // => false -> (65 > 97) => false
+      console.log('a' > 'A'); // => true -> (97 > 65) => true
+
+      console.log('/' < '}'); // => true -> (47 < 125) => true
+      console.log('#' < '0'); // => true -> (35 < 48)
+
+      console.log('5' < 'a'); // => true -> (53 < 97)
+      console.log('3' < '4'); // => true -> (51 < 52)
+
+      console.log(300 < 4); // => false -> (300 < 4) => false
+      console.log('300' < 4); // => true -> (51 < 52) => true
+
+      console.log('500' < 4); // => false -> (53 < 52) => false
+      console.log('500' > 4); // => true -> (53 > 52) => true
+
+      // Fängt der Vergleich mit Number an, dann wird der 2. Operant zu Number umzuwandeln
+      console.log(4 < '300'); // => true -> (4 < 300) => true
+      console.log(4 < '3'); // => false -> (4 < 3) => true
+      console.log(2 < '3'); // => true -> (2 < 3) => true
+      console.log(2 < '3Autos'); // => false -> (2 < NaN) => false
+      console.log(NaN > 2); // => false
+      console.log(2 < NaN); // => false
+    </script>
+  </body>
+</html>

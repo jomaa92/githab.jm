@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.forEach()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.forEach()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"
+        >array.forEach()</a
+      >
+      - Die <strong>forEach()</strong> Methode führt eine übergebene Funktion
+      für jedes Element eines Arrays aus.
+    </p>
+
+    <div class="output"></div>
+
+    <script>
+      'use strict';
+
+      const outputEl = document.querySelector('.output');
+
+      const products = [
+        'Game of Thrones Wax Seal Coasters',
+        'Electronic Butterfly in a Jar',
+        'Aquafarm: Aquaponics Fish Garden',
+        'Cassette Adapter Bluetooth',
+        'Marvel Comics Lightweight Infinity Scarf',
+        'Ollie - The App Controlled Robot',
+        'Sound Splash Bluetooth Waterproof Shower Speaker',
+        'PowerCube',
+        'Backpack of Holding',
+        'Retro Duo Portable NES/SNES Game System',
+        'Universal Gadget Wrist Charger',
+        'USB Squirming Tentacle',
+        'USB Fishquarium',
+        'Space Bar Keyboard Organizer & USB Hub Pop',
+        'USB Pet Rock',
+        'Powerstation 5- E. Maximus Chargus',
+        'Dual Heated Travel Mug',
+        'Crosley Collegiate Portable USB Turntable',
+        'Meh Hoodie',
+        'Magnetic Accelerator Cannon',
+      ];
+
+      // Array Methode forEach(callbackFunction(currentValue, index?, array?))
+
+      const getProductsByLetter = (letter, products) => {
+        return products.filter((product) => {
+          return product.charAt(0).toUpperCase() === letter.toUpperCase();
+        });
+      };
+
+      const letters = 'abcdefghjiklmnopqrstuvwxyz'.split('');
+      console.log(letters);
+
+      letters.forEach((letter) => {
+        const filtertedProducts = getProductsByLetter(letter, products);
+
+        // Guard: Guckt ob die gefilterte Produkte leer sind, wenn ja soll forEach nichts mehr machen
+        if (filtertedProducts.length === 0) return;
+
+        console.log(filtertedProducts);
+
+        outputEl.innerHTML += `<h3>${letter.toUpperCase()}</h3>`;
+        outputEl.innerHTML += `<ul><li>${filtertedProducts.join(
+          '</li><li>'
+        )}</li></ul>`;
+      });
+    </script>
+  </body>
+</html>

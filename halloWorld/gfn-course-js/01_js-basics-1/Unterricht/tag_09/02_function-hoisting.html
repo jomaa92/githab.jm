@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Hoisting</title>
+  </head>
+  <body>
+    <h1>Function Hoisting</h1>
+
+    <script>
+      'use strict';
+
+      // Hoisting bedeutet, dass JavaScript etwas hochzieht, sodass wir auf die Funktion zugreifen können bevor sie definiert wird
+
+      // Hoisting existiert für Funktionen aber nicht für Variablen
+      // Bei Variablen kriegen wir ein ReferenceError
+
+      // console.log(firstName); // => ReferenceError
+      // const firstName = 'Max';
+
+      // nichtHochgezogen(); // => ReferenceError: Cannot access 'nichtHochgezogen' before initialization
+
+      const nichtHochgezogen = () => {
+        console.log('Die Funktion "nichtHochgezogen" besitzt kein hoisting');
+      };
+
+      nichtHochgezogen(); // => Funktion wird aufgerufen
+
+      // ========================
+
+      hochgezogen(); // => Funktion wird aufgerufen, wegen hoisting
+
+      function hochgezogen() {
+        console.log(
+          'Funktion wird hochgezogen. Funktionsdefinition mit "function" eingeleiten besitzen hoisting'
+        );
+      }
+
+      hochgezogen(); // => Funktion wird aufgerufen
+
+      // Arrow Notation eine Zeile für sehr kurze Funktionen
+      const printNumber = () => console.log(5);
+
+      // Function Keyword mindestens 3 Zeilen Code
+      function printNum() {
+        console.log(5);
+      }
+    </script>
+  </body>
+</html>

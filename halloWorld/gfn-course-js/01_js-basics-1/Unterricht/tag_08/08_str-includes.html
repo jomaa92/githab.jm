@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.includes()</title>
+  </head>
+  <body>
+    <h1>String.includes()</h1>
+
+    <a
+      href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/includes"
+      >String.includes()</a
+    >
+
+    <p>
+      Die <strong>includes()</strong>-Methode gibt an, ob ein String innerhalb
+      eines anderen Strings gefunden wird und gibt dabei <code>true</code> oder
+      <code>false</code> wieder.
+    </p>
+
+    <script>
+      'use strict';
+
+      const productName = 'Prescription Mug';
+      const searchTerm = 'Mug';
+
+      // String - Methode/Funktion => includes()
+      console.log(productName.includes(searchTerm)); // => true
+      console.log(productName.includes('mug')); // => false
+    </script>
+  </body>
+</html>

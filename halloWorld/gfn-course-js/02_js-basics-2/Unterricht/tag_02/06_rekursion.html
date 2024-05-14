@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekursion</title>
+  </head>
+  <body>
+    <h1>Rekursion</h1>
+
+    <p>Rekursion breschreibt eine Funktion, die sich selber aufruft.</p>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Glossary/Recursion">
+      MDN Rekursion
+    </a>
+
+    <script>
+      'use strict';
+
+      const getProductPrice = () => {
+        const productPrice = Number(prompt('Please enter the product price.')); // => entweder bekommen wir number oder NaN
+
+        if (productPrice < 0 || isNaN(productPrice)) {
+          console.log('Your input is invalid');
+
+          // Die gesamte Funktion getProductPrice wird durch ein return in einem if Statement vorzeitig beendet
+          return getProductPrice(); // => Rekursion
+        }
+
+        console.log('Nach if statement');
+        return productPrice;
+      };
+
+      console.log('Price: $' + getProductPrice().toFixed(2));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for of Loop (for Schleife)</title>
+  </head>
+  <body>
+    <h1>for of Loop (for Schleife)</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of"
+        >for...of statement</a
+      >
+      - Mit dem <strong>for...of</strong> statement können sogenannte iterable
+      objects durchlaufen werden (Array, Map, Set, das "arguments" Objekt und
+      weitere eingeschlossen), wobei auf jeden gefundenen Wert eigene Statements
+      ausgeführt werden können.
+    </p>
+
+    <script>
+      'use strict';
+
+      const names = ['Tick', 'Trick', 'Track'];
+
+      // ======= Deklarativ (was ...) =======
+      names.forEach((name, index) => {
+        console.log(`index: ${index} name: ${name}`);
+      });
+
+      console.log('=======');
+
+      // ======= Imperativ (wie ...) =======
+
+      // for (element of array) { } bzw. for (variable of iterable) { }
+      for (const singleName of names) {
+        console.log(`index: ${names.indexOf(singleName)} name: ${singleName}`);
+      }
+    </script>
+  </body>
+</html>

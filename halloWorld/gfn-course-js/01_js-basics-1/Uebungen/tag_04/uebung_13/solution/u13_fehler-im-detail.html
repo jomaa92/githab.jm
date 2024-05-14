@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 13: Fehler im Detail</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <h1>Übung 13: Fehler im Detail</h1>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      let tale = `Three hicks were working on a telephone tower - Steve, Bruce and Jed. Steve falls off and is killed instantly.
+
+As the ambulance takes the body away, Bruce says, 'Someone should go and tell his wife.'
+
+Jed says, 'OK, I'm pretty good at that sensitive stuff, I'll do it.'
+
+Two hours later, he comes back carrying a case of beer.
+
+Bruce says, 'Where did you get that, Jed?'
+
+'Steve's wife gave it to me,' Jed replies.
+
+'That's unbelievable, you told the lady her husband was dead and she gave you beer?'
+
+'Well, not exactly', Jed says. 'When she answered the door, I said to her, "You must be Steve's widow".'
+
+She said, 'No, I'm not a widow!'
+
+And I said, 'I'll bet you a case of Budweiser you are.'`;
+
+      const cleanedTale =
+        "Three hicks were working on a telephone tower - Steve, Bruce and Jed. Steve falls off and is killed instantly.\nAs the ambulance takes the body away, Bruce says, 'Someone should go and tell his wife.'\nJed says, 'OK, I'm pretty good at that sensitive stuff, I'll do it.'\nTwo hours later, he comes back carrying a case of beer.\nBruce says, 'Where did you get that, Jed?'\n'Steve's wife gave it to me,' Jed replies.\n'That's unbelievable, you told the lady her husband was dead and she gave you beer?'\n'Well, not exactly', Jed says. 'When she answered the door, I said to her, \"You must be Steve's widow\".'\nShe said, 'No, I'm not a widow!'\nAnd I said, 'I'll bet you a case of Budweiser you are.'";
+
+      console.log(tale);
+      console.log(cleanedTale);
+
+      document.querySelector('code').innerText = tale;
+    </script>
+  </body>
+</html>

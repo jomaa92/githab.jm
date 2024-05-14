@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 09: Völlig verquer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 09: Völlig verquer</h1>
+          <p>
+            Na, haben wir den Mathematiker in Ihnen geweckt? Verwenden Sie die
+            Funktion digitSum aus der letzten Übung. Nutzen Sie die Funktion
+            dieses Mal, um gleich ein ganzes Array von Zahlen nach ihrer
+            Quersumme zu sortieren.
+          </p>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const numbers = [99, 5, 8, 12, 111, 123];
+
+      const digitSum = (number) => {
+        const convertToStringArray = String(number).split('');
+        const convertToNum = convertToStringArray.map((n) => Number(n));
+        const digitSum = convertToNum.reduce((x, y) => x + y, 0);
+
+        return digitSum;
+      };
+
+      console.log(numbers.sort((x, y) => digitSum(x) - digitSum(y))); // => [ 12, 111, 5, 123, 8, 99 ]
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.split()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.split()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/split"
+        >string.split()</a
+      >
+      - Die <strong>split()</strong> Methode teilt ein String Objekt in ein
+      Array von Strings auf, indem der String in Teilstrings zerteilt wird,
+      wobei ein angegebenes Trennzeichen verwendet wird, um zu bestimmen, wo die
+      Aufteilung erfolgen soll.
+    </p>
+
+    <script>
+      'use strict';
+
+      const text = 'Ich bin ein String';
+
+      // Array Methode split(separator)
+
+      console.log(text.split()); // => ['Ich bin ein String']
+      console.log(text.split(' ')); // => ['Ich', 'bin', 'ein', 'String']
+      console.log(text.split('')); // => ['I', 'c', 'h', ' ', 'b', 'i', 'n', ' ', 'e', 'i', 'n', ' ', 'S', 't', 'r', 'i', 'n', 'g']
+
+      console.log('Max'.split('')); // => ['M', 'a', 'x']
+    </script>
+  </body>
+</html>

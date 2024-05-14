@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exkurs: Regular Expressions (Reguläre Ausdrücke)</title>
+  </head>
+  <body>
+    <h1>Exkurs: Regular Expressions (Reguläre Ausdrücke)</h1>
+
+    <p>
+      Regex (Regular Expressions) ist eine effektive Methode, um Zeichenketten
+      (Strings) zu durchsuchen und zu manipulieren. Sie sind in vielen
+      Programmiersprachen verfügbar, darunter auch in JavaScript.
+    </p>
+
+    <p><a href="https://ihateregex.io/playground/">iHateRegex (Buch)</a></p>
+
+    <p>
+      <a href="https://regexr.com/">Regexr: Regex zu testen und zu erstellen</a>
+    </p>
+
+    <script>
+      'use strict';
+
+      // BEISPIELE SIND NUR BEI REGEXR.COM ODER IHATEREGEX.IO AUSFÜHRBAR
+
+      // Format: /pattern/flags
+      // "/" Öffnet und schließt den regulären Ausdruck
+      // Flags: g (global), i (case-insensitive), m (multiline)
+      // Beispiel: /hello/g - sucht nach allen Vorkommen von "hello"
+      // Beispiel: /hello/ - sucht nach dem ersten Vorkommen von "hello"
+
+      // ==== Pattern: . ====
+      // Der Punkt steht für jedes beliebige Zeichen (Zeilenbrüche ausgenommen)
+      const patternDot = /.ree/g;
+      // tree => tree
+      // three => hree
+      // treehouse => tree
+      // t$ree => $ree
+      // t_ree => _ree
+      // t!ree => !ree
+
+      // ==== Pattern: [] ====
+      // [] stehen für Zeichenklasse oder Zeichenmenge. Die Menge entspricht jedem Zeichen innerhalb der eckigen Klammern.
+      const patternCharacterClass = /[Ee]s6/g;
+      // es6 => es6
+      // Es6 => Es6
+      // ES6 =>
+      // JavaScriptEs6Update => Es6
+
+      // ==== Pattern: [^] ====
+      // [^] steht für negierte Zeichenklasse, die jedem Zeichen entspricht, welches nicht innerhalb der eckigen Klammern definiert ist.
+      const patternNegated = /[^t]ree/g;
+      // tree =>
+      // three => hree
+      // treehouse =>
+      // t$ree => $ree
+      // t_ree => _ree
+      // t!ree => !ree
+
+      // ==== Pattern: * ====
+      // * entspricht 0 oder mehreren Wiederholungen des vorhergehenden Teilsausdrucks.
+      const patternZeroOrMore = /[0-9]*/g;
+      // 23454324 => 23454324
+      // 0176 => 0176
+      // DE =>
+      // 343 => 343
+      // DE3AE => 3
+
+      // ==== Pattern: + ====
+      // + entspricht 1 oder mehr Wiederholungen des vorhergehenden Teilsausdrucks.
+      const patternOneOrMore = /d.+d/g;
+      // dd =>
+      // d d => d d
+      // dad => dad
+      // it is bad if you are bad to be honest => d if you are bad
+
+      // ==== Pattern: ? ====
+      // ? macht den vorhergehenden Teilsausdrucks optional.
+      const patternOptional = /[D]?as/g;
+      // Das Schiff fährt im Wasser. => Das, as
+
+      // ==== Pattern: {n,m} ====
+      // Die geschweiften Klammern geben an, wie oft ein Teilausdruck minimal und maxinmal hintereinander übereinstimmen muss.
+      const patternMinMax = /[0-9]{2,3}/g;
+      // Die Nummer 9.9997 runden wir zu 10.0 auf. => 999, 10
+
+      // ==== Pattern: (xyz) ====
+      // (xyz) ist eine Gruppierung. Die fasst eine Gruppe von Teilausdrücken in runden Klammern zusammen.
+      const patternGrouping = /DE([0-9]{2} [0-9]{5})/g;
+      // DE60 12345 DE6012345 => DE6012345
+      // DE60 123456 60 12345 => DE60 12345
+      // DE600 12345 60 12345 =>
+
+      // ==== Pattern: | ====
+      // | ist eine Alternation (Oder). Eine Alternation dient dazu eine "Alternative" zu definieren.
+      const patternAlternation = /[D|W]as/g;
+      // Das Schiff fährt im Wasser. => Das, Was
+
+      // ==== Pattern: \ ====
+      // \ ist eine Escape Noation. Der Backslash "escaped" das nachfolgende Zeichen.
+      const patternEscape = /Programmiersprache(\.)/g;
+      // Die Programmiersprache Javascript ist eine tolle Programmiersprache. => Programmiersprache.
+    </script>
+  </body>
+</html>

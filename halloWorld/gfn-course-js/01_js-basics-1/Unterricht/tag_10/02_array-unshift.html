@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.unshift()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.unshift()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift"
+        >array.unshift()</a
+      >
+      - Die <strong>unshift()</strong> Methode fügt ein oder mehrere Elemente am
+      <strong>Anfang</strong> eines Array hinzu und gibt die neue Länge des
+      Arrays zurück.
+    </p>
+
+    <script>
+      'use strict';
+
+      const customers = [
+        'Heribert',
+        'Friedlinde',
+        'Tusnelda',
+        'Oswine',
+        'Ladislaus',
+      ];
+      console.log(customers); // => ['Heribert', 'Friedlinde', 'Tusnelda', 'Oswine', 'Ladislaus']
+      console.log(customers.length); // => 5
+
+      // Array Methode unshift(element1, element2, /* …, */ elementN)
+
+      // Mit der unshift()-Methode fügen wir "Goldy" am Anfang des Array customers hinzu
+      customers.unshift('Goldy');
+      console.log(customers); // => ['Goldy', 'Heribert', 'Friedlinde', 'Tusnelda', 'Oswine', 'Ladislaus']
+
+      // Die Rückgabe von unshift ist NICHT das array selber, sondern die neue Länge des Array
+      console.log(customers.unshift('Tick', 'Trick', 'Track')); // => 9
+
+      console.log(customers); // => ['Tick', 'Trick', 'Track', 'Goldy', 'Heribert', 'Friedlinde', 'Tusnelda', 'Oswine', 'Ladislaus']
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Externe Times Helper Function</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  </head>
+  <body>
+    <h1>Externe Times Helper Function</h1>
+
+    <script>
+      'use strict';
+
+      // _.times kommt von lodash
+
+      console.log(_.times(3, () => '💻')); // => ['💻', '💻', '💻']
+      console.log(_.times(5, () => '*')); // => ['*', '*', '*', '*', '*']
+      console.log(_.times(10, () => '🚀').join('')); // => '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀'
+
+      const names = ['Tick', 'Trick', 'Track'];
+
+      console.log(_.times(3, (idx) => idx + 1 + ' Rank: ' + names[idx])); // => ['1 Rank: Tick', '2 Rank: Trick', '3 Rank: Track']
+
+      // INFO: Times Helper Function von lodash
+      /*
+      function baseTimes(n, iteratee) {
+        var index = -1,
+          result = Array(n);
+
+        while (++index < n) {
+          result[index] = iteratee(index);
+        }
+        return result;
+      } 
+      */
+    </script>
+  </body>
+</html>

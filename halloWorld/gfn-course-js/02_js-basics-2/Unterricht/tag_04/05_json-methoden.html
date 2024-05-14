@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON.stringify() und JSON.parse()</title>
+  </head>
+  <body>
+    <h1>JSON.stringify() und JSON.parse()</h1>
+
+    <script>
+      'use strict';
+
+      const products = [
+        {
+          name: 'Klingon Letter Opener',
+          category: ['Office Warfare', 'StarTrek'],
+          availableSince: 2007,
+        },
+        {
+          name: '3Doodler 3D Printing Pen',
+          category: ['Design', 'Hits for Kids'],
+          availableSince: 1999,
+        },
+        {
+          name: '8-Bit Heat-Change Mug',
+          category: ['Coffee Equipment'],
+          availableSince: 2016,
+        },
+      ];
+
+      console.log(products); // => [{…}, {…}, {…}]
+
+      // ===== JavaScript => JSON (wandeln JavaScript zu JSON um) =====
+      const productsInJSON = JSON.stringify(products);
+      console.log(productsInJSON); // => [{"name":"Klingon Letter Opener","category":["Office Warfare","StarTrek"],"availableSince":2007},{"name":"3Doodler 3D Printing Pen","category":["Design","Hits for Kids"],"availableSince":1999},{"name":"8-Bit Heat-Change Mug","category":["Coffee Equipment"],"availableSince":2016}]
+
+      // ===== JSON => JavaScript (wandeln JSON in JavaScript um) =====
+      const productsRaw = JSON.parse(productsInJSON);
+      console.log(productsRaw); // => [{…}, {…}, {…}]
+
+      // ===== JSON Datei aus einem externen Server/Datenbank laden (OPTIONAL) =====
+      // JSONPlaceholder: https://jsonplaceholder.typicode.com/
+      const todoVonServer = fetch(
+        'https://jsonplaceholder.typicode.com/todos/1'
+      )
+        .then((response) => response.json())
+        .then((json) => console.log(json)); // => {userId: 1, id: 1, title: 'delectus aut autem', completed: false}
+    </script>
+  </body>
+</html>

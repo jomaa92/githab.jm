@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kapitel 4.3: Test dein Wissen Fragen</title>
+  </head>
+  <body>
+    <h1>Kapitel 4.3: Test dein Wissen Fragen</h1>
+
+    <script>
+      'use strict';
+
+      // FRAGE #1: Schreibe eine Funktion, die die Summe aller Zahlen in einem Array rekursiv berechnet.
+
+      const numbersArray = [5, 5, 5, 5];
+
+      // prettier-ignore
+      const sum = arr => arr.length === 0 ? 0 : arr[0] + sum(arr.slice(1))
+
+      console.log(sum(numbersArray)); // => 20
+      console.log(numbersArray.reduce((x, y) => x + y)); // => 20, die einfachere Methode
+
+      // FRAGE #2: Bestimme die Ausgabe des folgenden Skriptes:
+
+      // prettier-ignore
+      const calc = x => (x > 100 ? 100 : calc(x * 2));
+      console.log(calc(3) + 1); // => 101
+
+      // Schreibweise 2
+      const calc2 = (x) => {
+        if (x > 100) {
+          return 100;
+        } else {
+          return calc2(x * 2);
+        }
+      };
+      console.log(calc2(3) + 1); // => 101
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methode/Funktion - array.map()</title>
+  </head>
+  <body>
+    <h1>Array Methode/Funktion - array.push()</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
+        >array.map()</a
+      >
+      - Die <strong>map()</strong> (engl. abbilden) Methode wendet auf jedes
+      Element des Arrays die bereitgestellte Funktion an und gibt das Ergebnis
+      in einem neuen Array zurück. (<code>side-effect-free</code>)
+    </p>
+
+    <script>
+      'use strict';
+
+      // Array Methode map(callbackFunction(currentValue, index?, array?))
+      // Durch die Methode map wird das Original Array NICHT verändert, sondern erstellt ein neues
+      // Das heißt mit map muss man sich keine Sorgen machen, dass Originale Werte überschrieben werden
+
+      const nums = [1, 2, 3, 4, 5];
+
+      const undefinedNums = nums.map(() => {}); // Die Callback-Function gibt nichts zurück also kein return von irgendwas, dadurch wird der Array 5x undefined zugewiesen
+
+      console.log(undefinedNums); // => [undefined, undefined, undefined, undefined, undefined]
+
+      const printNums = nums.map((n) => console.log(n)); // => 1, 2, 3, 4, 5
+
+      const doubleNums = nums.map((x) => x * 2);
+      console.log(doubleNums); // => [2, 4, 6, 8, 10]
+
+      // Index von einem Array durch map
+      console.log('======= Index und Array Parameter =======');
+      nums.map((n, i, arr) => {
+        console.log('Value: ', n);
+        console.log('Index: ', i);
+        console.log('Array: ', arr);
+      });
+
+      console.log('================');
+
+      console.log(
+        [10, 'hallo', 30].map((n) => {
+          return 1;
+        })
+      ); // => [1, 1, 1], die callback Funktion gibt 1 zurück
+
+      console.log(
+        [100, 'fünf', 50].map((irgendeinParameter) => {
+          return irgendeinParameter;
+        })
+      ); // => [100, 'fünf', 50], die callback Funktion gibt den gleichen Wert zurück
+
+      console.log(
+        [100, 'fünf', 50].map((irgendeinParameter) => {
+          return 2;
+        })
+      ); // => [2, 2, 2], die callback Funktion gibt 2 zurück
+
+      console.log(['wie', 'geht', 'es', 'dir'].map((text) => text)); // => [['wie', 'geht', 'es', 'dir']
+
+      console.log(
+        ['wie', 'geht', 'es', 'dir'].map((text) => {
+          text; // return Keyword vergessen
+        })
+      ); // => [undefined, undefined, undefined, undefined], die callback Funktion hat {}-Klammern und kein return Keyword
+
+      // Man kann die Parameter auch ohne ()-Klammern setzten
+      // prettier-ignore
+      console.log([1, 2, 3, '4'].map(n => typeof n)) // => ['number', 'number', 'number', 'string']
+
+      console.log(
+        [1, 2, 3, '4'].map((n) => {
+          const parseNum = Number(n);
+          const randomNum = Math.random() * 100;
+          const result = parseNum * randomNum;
+          return Math.round(result);
+        })
+      ); // => z.B. [87, 190, 226, 16]
+    </script>
+  </body>
+</html>

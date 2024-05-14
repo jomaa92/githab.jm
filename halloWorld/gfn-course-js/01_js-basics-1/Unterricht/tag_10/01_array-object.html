@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array - Object</title>
+  </head>
+  <body>
+    <h1>Array - Object</h1>
+
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+        >Array Object</a
+      >
+      - Das JavaScript-Array ist ein globales Objekt und Konstruktor für das
+      Erstellen von Arrays, welche listenähnliche Objekte sind.
+    </p>
+
+    <script>
+      'use strict';
+
+      // Leeres Array
+      const customers = [];
+
+      console.log(customers); // Zugriff auf die Array Klasse, welche JavaScript im Hintergrund erstellt. Dadurch haben wir automatisch Zugriff auf Eigenschaften wie length oder auf Methoden bzw. Funktionen
+
+      console.log(typeof customers); // => 'object'
+
+      const names = [
+        'Aurelia',
+        'Cassius',
+        'Seraphina',
+        'Thaddeus',
+        'Lavinia',
+        'Cyrus',
+        'Ariadne',
+        'Darius',
+        'Felicity',
+        'Gideon',
+        'Esme',
+        'Leander',
+        'Persephone',
+        'Maximilian',
+        'Phoebe',
+        'Roman',
+        'Valentina',
+        'Zephyr',
+      ];
+
+      // Array - Eigenschaft length
+      console.log(names.length); // => 18, zählen beginnt bei 1 und nicht 0
+
+      // Indexoperator mit []-Klammern
+      console.log(names[0]); // => 'Aurelia'
+      console.log(names[1]); // => 'Cassius'
+    </script>
+  </body>
+</html>

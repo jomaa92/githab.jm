@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kartonvolumen berechnen (cube) mit Funktionen</title>
+  </head>
+  <body>
+    <h1>Kartonvolumen berechnen (cube) mit Funktionen</h1>
+
+    <script>
+      'use strict';
+
+      const BASE_COST_PER_UNIT = 0.7; // Der Spediteur stellt  0,70€ pro Einheit in Rechnung.
+      const COST_PER_CC = 0.001; // Der Spediteur stellt 0,001€ pro cm³ in Rechnung.
+
+      const length = 25;
+      const width = 30;
+      const height = 12;
+
+      // Funktion zum Berechnen des Kartonvolumens
+      const calcCubeVolume = (length, width, height) => {
+        // Formel zur Berechnung von dem Volumen: V = length * width * height
+        const volume = length * width * height; // volume ist NUR in der Funktion verfügbar
+        return volume; // return Keyword legt fest, was der Rückgabewert der Funktion sein soll
+      };
+
+      // console.log(volume); // => ReferenceError: volume is not defined
+
+      // Kurzschreibweise von calcCubeVolume
+      const calcCubeVolumeShort = (l, w, h) => l * w * h;
+      console.log(calcCubeVolumeShort(length, width, height)); // => 9000
+
+      const calcShippingCost = (volume) => {
+        // Ohne return Keyword, gib jede Funktion undefined zurück
+        return volume * COST_PER_CC + BASE_COST_PER_UNIT;
+      };
+
+      // ========== Funktionsaufrufe ==========
+      const cubeVolume = calcCubeVolume(length, width, height);
+      console.log(cubeVolume); // => 9000
+
+      const shippingCost = calcShippingCost(cubeVolume);
+      console.log(shippingCost); // => 9.7
+
+      console.log(`Die Versandkosten betragen: ${shippingCost.toFixed(2)}€`);
+    </script>
+  </body>
+</html>
