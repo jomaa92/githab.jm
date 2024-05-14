@@ -27,10 +27,14 @@
 
         <h1>Hallo World!</h1>
         <p id="textId" style="color: rgb(128, 148, 141);
-        font-size: x-large;">the Result</p>
+        font-size: x-large;text-align:inherit;">the Result</p>
     </div>
     <script>
         'use strict';
+
+
+        let textResult = document.getElementById("textId");
+
         const lin = (length, char) => {
             if (length === 0)
                 return "";
@@ -39,6 +43,9 @@
 
         };
         console.log(lin(9, '🚗'));
+        textResult.innerHTML = lin(4, '🚗');
+
+
         // ==============================================================
 
         const lineS = (length, char) => {
@@ -46,9 +53,9 @@
 
         };
         console.log(lineS(5, "😂"));
+        textResult.innerHTML = lin(4, '🚗') + "  " + lineS(5, "😂");
 
-
-        let textResult = document.getElementById("textId");
+        // ==============================================================
 
         const lineFor = (length, char) => {
             let container = ""
@@ -56,11 +63,12 @@
                 container += char;
                 console.log(container);
 
+
             };
 
             return container;
 
-
+            // ==============================================================
 
             // ===> hier ist the console if you will write something
 
@@ -80,9 +88,41 @@
             //     arrayIm(); // Diese Funktion wird aufgerufen und das Ergebnis wird in der Konsole geloggt.
             // }
 
-
+            // ==============================================================
         };
         lineFor(11, "©");
+
+        const lineReche = (width, height, char) => {
+            return height !== 0 ? lineReche(width, height - 1, char) + lin(width, char) + '\n' : '';
+        }
+
+        console.log(lineReche(3, 4, "❤️"));
+
+
+
+
+        // ==============================================================
+
+        const lineFor2 = (width, height, char) => {
+            let container = "";
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    container += char;
+                }
+                container += '\n'; // Add a newline character after each row
+            }
+            return container;
+        }
+
+        console.log(lineFor2(8, 3, "🧱"));
+        console.log(lineFor2(2, 3, "🧱"));
+
+
+        textResult.innerHTML = lin(4, '🚗') + "||" + lineS(5, "😂") + "||" + lineReche(3, 4, "❤️") + lineFor2(8, 3, "🧱");
+
+
+
+
     </script>
 </body>
 
