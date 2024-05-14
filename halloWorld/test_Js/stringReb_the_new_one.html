@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="
+    background-color: bisque;
+    border-radius: 15px;
+    height: 30%;
+    width: 42%;
+    margin: auto;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    " class="countiner">
+
+
+
+
+        <h1>Hallo World!</h1>
+        <p id="textId" style="color: rgb(126, 142, 136);
+        font-size: x-large;
+        ">the Result</p>
+
+        <div class="button">
+            <button id="previous" type="submit">previous</button>
+            <button id="next" type="reset">Next</button>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+
+    'use strict';
+
+    let textResult = document.getElementById("textId");
+    let butN = document.getElementById("next");
+    let butp = document.getElementById("previous");
+
+
+
+    let count = 0;
+    console.log(count);
+
+    function button() {
+
+        function addVolumeToString(string, volumeLevel) {
+            let volumeIndicator = '🔊';
+            let volumeString = string + ' ' + volumeIndicator.repeat(volumeLevel);
+            return volumeString;
+        }
+
+
+        butN.addEventListener('click', function () {
+            if (count < 5) {
+                ++count;
+                console.log(count);
+                textResult.innerHTML = addVolumeToString("Music", count);
+
+            }
+
+        });
+        butp.addEventListener('click', function () {
+
+            if (count > 0) {
+                --count;
+                console.log(count);
+                textResult.innerHTML = addVolumeToString("Music", count);
+            };
+        });
+    };
+    button();
+
+
+
+
+
+
+
+
+    // addVolumeToString("😂", 5)
+    // console.log(addVolumeToString("music", 5));
+
+
+
+    // let myString = "Musik";
+    // let loudnessLevel = 4; // Stelle die Lautstärke zwischen 1 und 5 ein
+    // let newStringWithVolume = addVolumeToString(myString, loudnessLevel);
+
+    // console.log(newStringWithVolume); // "Musik 🔊🔊🔊"
+    // textResult.innerHTML = newStringWithVolume;
+
+
+
+</script>
+
+</html>
